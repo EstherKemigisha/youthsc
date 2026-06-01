@@ -1,0 +1,307 @@
+/* Dark theme (default) */
+:root,
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  --white: #ffffff;
+  --black: #0a0a0a;
+  --cream: #f8f2e4;
+  --cream-deep: #ede6d4;
+  --orange: #f5a623;
+  --orange-bright: #ffc040;
+  --orange-deep: #d48912;
+  --orange-soft: rgba(245, 166, 35, 0.18);
+
+  --bg: #0a0a0a;
+  --bg-elevated: #121212;
+  --text: #f8f2e4;
+  --text-muted: rgba(248, 242, 228, 0.72);
+  --heading: #ffffff;
+  --border: rgba(255, 255, 255, 0.14);
+  --surface-elevated: rgba(18, 18, 18, 0.92);
+  --surface-muted: rgba(255, 255, 255, 0.08);
+  --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.45);
+  --video-letterbox: #050505;
+  --overlay-scrim: rgba(5, 5, 5, 0.92);
+}
+
+/* Light theme — pure white */
+[data-theme='light'] {
+  color-scheme: light;
+
+  --black: #ffffff;
+  --cream: #111111;
+  --cream-deep: #333333;
+  --white: #000000;
+
+  --bg: #ffffff;
+  --bg-elevated: #ffffff;
+  --text: #111111;
+  --text-muted: rgba(17, 17, 17, 0.68);
+  --heading: #000000;
+  --border: rgba(0, 0, 0, 0.1);
+  --surface-elevated: #ffffff;
+  --surface-muted: rgba(0, 0, 0, 0.05);
+  --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --video-letterbox: #f2f2f2;
+  --overlay-scrim: rgba(255, 255, 255, 0.97);
+}
+
+/* Hero stays over video — keep light text in light mode */
+[data-theme='light'] .hero {
+  --white: #ffffff;
+  --cream: #f8f2e4;
+  color: #ffffff;
+}
+
+/* Readable text on white sections in light mode */
+[data-theme='light'] .about__title,
+[data-theme='light'] .events__card-title,
+[data-theme='light'] .interviews__title,
+[data-theme='light'] .interviews__slide-title,
+[data-theme='light'] .interviews__lightbox-title,
+[data-theme='light'] .interviews__resources-title,
+[data-theme='light'] .site-footer__name,
+[data-theme='light'] .register-page__title,
+[data-theme='light'] .register-page__event-title,
+[data-theme='light'] .register-page__success h2 {
+  color: var(--heading);
+}
+
+[data-theme='light'] .about__copy p,
+[data-theme='light'] .events__time,
+[data-theme='light'] .events__card-cta,
+[data-theme='light'] .interviews__slide-cta,
+[data-theme='light'] .interviews__resource-link,
+[data-theme='light'] .site-footer__link,
+[data-theme='light'] .register-page__subtitle,
+[data-theme='light'] .register-page__event-description,
+[data-theme='light'] .register-page__field span,
+[data-theme='light'] .register-page__success p {
+  color: var(--text-muted);
+}
+
+[data-theme='light'] .interviews__pull-quote {
+  color: var(--orange-deep);
+}
+
+[data-theme='light'] .events__card-cta:hover,
+[data-theme='light'] .interviews__resource-link:hover {
+  color: var(--heading);
+}
+
+[data-theme='light'] .interviews__slide-caption,
+[data-theme='light'] .interviews__slide-title,
+[data-theme='light'] .interviews__slide-cta {
+  color: var(--heading);
+}
+
+[data-theme='light'] .interviews__slide-cta {
+  color: var(--orange-deep);
+}
+
+/* Light mode: override dark-tinted section surfaces */
+[data-theme='light'] .events__mesh {
+  background:
+    radial-gradient(
+      ellipse 80% 50% at 20% 30%,
+      rgba(245, 166, 35, 0.1) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse 60% 40% at 85% 70%,
+      rgba(255, 192, 64, 0.08) 0%,
+      transparent 50%
+    ),
+    linear-gradient(180deg, #ffffff 0%, #ffffff 50%, #ffffff 100%);
+}
+
+[data-theme='light'] .events__card-body {
+  background: #ffffff;
+}
+
+[data-theme='light'] .events__card-media {
+  background: #f5f5f5;
+}
+
+[data-theme='light'] .events__card-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 0.92) 0%,
+    rgba(255, 255, 255, 0.35) 45%,
+    rgba(245, 166, 35, 0.06) 100%
+  );
+}
+
+[data-theme='light'] .events__card-badge {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.88) 100%);
+}
+
+[data-theme='light'] .events__description,
+[data-theme='light'] .events__intro {
+  color: var(--text-muted);
+}
+
+[data-theme='light'] .interviews__description,
+[data-theme='light'] .interviews__intro,
+[data-theme='light'] .interviews__pull-quote,
+[data-theme='light'] .interviews__resources-subtitle {
+  color: var(--text-muted);
+}
+
+[data-theme='light'] .site-footer__tagline,
+[data-theme='light'] .site-footer__copy {
+  color: var(--text-muted);
+}
+
+[data-theme='light'] .interviews__overlay {
+  background: linear-gradient(
+    105deg,
+    rgba(255, 255, 255, 0.96) 0%,
+    rgba(255, 255, 255, 0.88) 45%,
+    rgba(255, 255, 255, 0.94) 100%
+  );
+}
+
+[data-theme='light'] .interviews__watermark {
+  color: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme='light'] .interviews__slide-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 255, 255, 0.2) 45%,
+    transparent 70%
+  );
+}
+
+[data-theme='light'] .interviews__nav {
+  background: #ffffff;
+  color: var(--heading);
+}
+
+[data-theme='light'] .interviews__resources {
+  background: #ffffff;
+}
+
+[data-theme='light'] .about__base-tint {
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 20%,
+    rgba(255, 255, 255, 0.6) 42%,
+    #ffffff 65%,
+    #ffffff 100%
+  );
+}
+
+[data-theme='light'] .about__seam-blend {
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(255, 255, 255, 0.4) 18%,
+    rgba(255, 255, 255, 0.75) 38%,
+    rgba(255, 255, 255, 0.92) 58%,
+    #ffffff 78%,
+    transparent 100%
+  );
+}
+
+/* Light mode: softer cream-orange panel (less intense than dark mode) */
+[data-theme='light'] .about__panel {
+  border-color: rgba(245, 166, 35, 0.22);
+  background:
+    radial-gradient(
+      ellipse 85% 65% at 18% 8%,
+      rgba(255, 252, 245, 0.85) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse 75% 55% at 92% 88%,
+      rgba(245, 200, 130, 0.12) 0%,
+      transparent 52%
+    ),
+    linear-gradient(
+      158deg,
+      #faf7ef 0%,
+      #f3ead6 28%,
+      #e8dcc4 58%,
+      #ddd0b0 100%
+    );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.75),
+    0 14px 36px rgba(0, 0, 0, 0.07);
+}
+
+[data-theme='light'] .about__panel::after {
+  background: linear-gradient(
+    125deg,
+    rgba(255, 255, 255, 0.35) 0%,
+    transparent 45%,
+    transparent 70%,
+    rgba(245, 166, 35, 0.04) 100%
+  );
+}
+
+[data-theme='light'] .register-page__form-wrap,
+[data-theme='light'] .register-page__event-card {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='light'] .register-page__field input,
+[data-theme='light'] .register-page__field select,
+[data-theme='light'] .register-page__field textarea {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.15);
+  color: var(--heading);
+}
+
+:root {
+  --font: 'Montserrat', system-ui, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-font-smoothing: antialiased;
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+}
+
+@media (max-width: 768px) {
+  html {
+    scroll-padding-top: 1rem;
+  }
+}
