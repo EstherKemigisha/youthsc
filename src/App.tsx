@@ -1,7 +1,10 @@
 import { Route, Routes } from 'react-router-dom'
 import { SiteLayout } from './components/Layout/SiteLayout'
+import { DonatePage } from './pages/DonatePage'
 import { EventRegistrationPage } from './pages/EventRegistrationPage'
 import { HomePage } from './pages/HomePage'
+import { JoinUsPage } from './pages/JoinUsPage'
+import { YouthCollectionPage } from './pages/YouthCollectionPage'
 
 function App() {
   return (
@@ -27,6 +30,30 @@ function App() {
         element={
           <SiteLayout>
             <EventRegistrationPage />
+          </SiteLayout>
+        }
+      />
+      <Route
+        path="/donate"
+        element={
+          <SiteLayout>
+            <DonatePage />
+          </SiteLayout>
+        }
+      />
+      <Route
+        path="/youth-collection"
+        element={
+          <SiteLayout>
+            <YouthCollectionPage />
+          </SiteLayout>
+        }
+      />
+      <Route
+        path="/join"
+        element={
+          <SiteLayout>
+            <JoinUsPage />
           </SiteLayout>
         }
       />

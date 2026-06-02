@@ -1,5 +1,5 @@
+import { Link } from 'react-router-dom'
 import { HERO_CONTENT } from '../../data/heroContent'
-import { SiteMenu } from './SiteMenu'
 import { WhatsAppButton } from './WhatsAppButton'
 
 const LOGO_LETTERS = ['Y', 'S', 'C'] as const
@@ -9,7 +9,7 @@ export function Header() {
 
   return (
     <header className="header">
-      <a href="#" className="logo" aria-label="YSC Home">
+      <Link to="/#home" className="logo" aria-label="YSC Home">
         {LOGO_LETTERS.map((letter) => (
           <span
             key={letter}
@@ -20,10 +20,9 @@ export function Header() {
             {letter}
           </span>
         ))}
-      </a>
+      </Link>
       <div className="header__actions">
         <WhatsAppButton href={whatsapp.href} label={whatsapp.label} />
-        <SiteMenu />
       </div>
     </header>
   )

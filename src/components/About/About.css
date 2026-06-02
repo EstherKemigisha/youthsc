@@ -8,6 +8,8 @@
   color: var(--text);
   font-family: var(--font);
   overflow: hidden;
+  /* Let hero CTAs receive clicks in the overlap zone above this section */
+  pointer-events: none;
 }
 
 .about__backdrop {
@@ -56,6 +58,7 @@
   margin: 0 auto;
   padding: clamp(2rem, 4vw, 3.25rem) clamp(1.25rem, 3vw, 2.5rem)
     clamp(1.25rem, 2.5vw, 1.75rem);
+  pointer-events: auto;
   transform: scale(0.94);
   opacity: 0;
   transition:

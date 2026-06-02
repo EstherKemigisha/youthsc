@@ -10,7 +10,7 @@ import { useInView } from '../../hooks/useInView'
 import { getVisibleSlideCount } from '../../utils/visibleSlides'
 import './Interviews.css'
 
-const SCROLL_SPEED_PX_S = 98
+const SCROLL_SPEED_PX_S = 52
 const USER_PAUSE_MS = 10000
 
 type TrackMetrics = {
@@ -50,8 +50,6 @@ export function Interviews() {
     pullQuote,
     sectionIntro,
     resourcesTitle,
-    resourcesSubtitle,
-    resourceLinks,
     backgroundImage,
     interviews,
   } = INTERVIEWS_CONTENT
@@ -342,46 +340,36 @@ export function Interviews() {
                         onClick={() => snapToSlide(realIndex, true)}
                       >
                         <div className="interviews__slide-inner">
-                          <video
-                            ref={(el) => {
-                              videoRefs.current[realIndex] = el
-                            }}
-                            className="interviews__video"
-                            src={item.video}
-                            muted
-                            loop
-                            playsInline
-                            preload="metadata"
-                            aria-hidden={expandedIndex === realIndex}
-                            aria-label={item.title}
-                          />
-                          <div className="interviews__slide-overlay" aria-hidden="true" />
-                          {isActive && (
-                            <div className="interviews__slide-caption">
-                              <button
-                                type="button"
-                                className="interviews__play"
-                                onClick={(event) => {
-                                  event.stopPropagation()
-                                  openVideo(realIndex)
+                          <div className="interviews__slide-top">
+                            <div className="interviews__avatar-ring">
+                              <video
+                                ref={(el) => {
+                                  videoRefs.current[realIndex] = el
                                 }}
-                                aria-label={`Play ${item.title}`}
-                              >
-                                <span aria-hidden="true">▶</span>
-                              </button>
-                              <h3 className="interviews__slide-title">{item.title}</h3>
-                              <button
-                                type="button"
-                                className="interviews__slide-cta"
-                                onClick={(event) => {
-                                  event.stopPropagation()
-                                  openVideo(realIndex)
-                                }}
-                              >
-                                {item.cta}
-                              </button>
+                                className="interviews__video"
+                                src={item.video}
+                                muted
+                                loop
+                                playsInline
+                                preload="metadata"
+                                aria-hidden={expandedIndex === realIndex}
+                                aria-label={item.title}
+                              />
                             </div>
-                          )}
+                          </div>
+                          <div className="interviews__slide-caption">
+                            <h3 className="interviews__slide-title">{item.title}</h3>
+                            <button
+                              type="button"
+                              className="interviews__slide-cta"
+                              onClick={(event) => {
+                                event.stopPropagation()
+                                openVideo(realIndex)
+                              }}
+                            >
+                              Watch More
+                            </button>
+                          </div>
                         </div>
                       </article>
                     )
@@ -430,17 +418,7 @@ export function Interviews() {
           </div>
           <div className="interviews__resources-head">
             <h3 className="interviews__resources-title">{resourcesTitle}</h3>
-            <p className="interviews__resources-subtitle">{resourcesSubtitle}</p>
           </div>
-          <ul className="interviews__resources-grid">
-            {resourceLinks.map((link) => (
-              <li key={link.label}>
-                <a className="interviews__resource-link" href={link.href}>
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
         </div>
       </div>
 

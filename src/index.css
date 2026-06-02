@@ -291,6 +291,27 @@ body {
   color: var(--text);
 }
 
+#home,
+#about,
+#events,
+#interviews {
+  scroll-margin-bottom: calc(4.25rem + env(safe-area-inset-bottom, 0px) + 0.75rem);
+}
+
+#home {
+  scroll-margin-top: env(safe-area-inset-top, 0px);
+}
+
+@media (max-width: 900px) {
+  body {
+    padding-bottom: calc(4.25rem + env(safe-area-inset-bottom, 0px));
+  }
+
+  .site-footer {
+    margin-bottom: 0.5rem;
+  }
+}
+
 img {
   max-width: 100%;
   height: auto;

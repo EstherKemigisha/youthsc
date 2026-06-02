@@ -5,11 +5,6 @@ export type InterviewItem = {
   cta: string
 }
 
-export type ResourceLink = {
-  label: string
-  href: string
-}
-
 export const INTERVIEWS_CONTENT = {
   watermark: 'INTERVIEWS',
   eyebrow: 'Real stories',
@@ -20,16 +15,6 @@ export const INTERVIEWS_CONTENT = {
   sectionIntro:
     'Their words say what numbers never could — press play and hear what God is doing in young lives.',
   resourcesTitle: 'Stay rooted in what God is doing',
-  resourcesSubtitle:
-    'Gatherings, media, and tools to help you grow, serve, and bring others along.',
-  resourceLinks: [
-    { label: 'Upcoming Events', href: '#events' },
-    { label: 'Friday Hangout', href: '#events' },
-    { label: 'Bible Study', href: '#events' },
-    { label: 'City Outreach', href: '#events' },
-    { label: 'About YSC', href: '#about' },
-    { label: 'Join Us', href: '#hero' },
-  ] satisfies ResourceLink[],
   backgroundImage: '/interviews/bg.png',
   interviews: [
     {

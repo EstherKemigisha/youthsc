@@ -40,18 +40,10 @@
   margin: 0 auto clamp(2rem, 5vh, 2.75rem);
 }
 
-.register-page__back {
-  display: inline-flex;
-  margin-bottom: 1.25rem;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--orange-bright);
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.register-page__back:hover {
-  color: var(--heading);
+@media (min-width: 600px) {
+  .register-page__header {
+    padding-left: clamp(5.5rem, 18vw, 7rem);
+  }
 }
 
 .register-page__eyebrow {

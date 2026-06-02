@@ -16,12 +16,13 @@ export function Hero() {
     socialLinks,
     ctas,
     backgroundVideo,
+    mobileBackgroundVideo,
     videoWordSegments,
   } = HERO_CONTENT
 
   return (
-    <section className="hero" aria-label="Hero">
-      <HeroVideo src={backgroundVideo} />
+    <section id="home" className="hero" aria-label="Hero">
+      <HeroVideo src={backgroundVideo} mobileSrc={mobileBackgroundVideo} />
       <div className="hero__overlay" role="presentation" />
 
       <Chevrons />
@@ -44,7 +45,9 @@ export function Hero() {
       </div>
 
       <aside className="hero__cta-panel">
-        <HeroActions ctas={ctas} />
+        <HeroActions
+          ctas={ctas.filter((cta) => cta.label.toLowerCase() !== 'get involved')}
+        />
       </aside>
     </section>
   )

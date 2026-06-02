@@ -52,11 +52,11 @@ export const HERO_CONTENT = {
     { label: 'Facebook', href: 'https://facebook.com', platform: 'facebook' },
   ] satisfies SocialLink[],
   ctas: [
-    { label: 'Join Us', href: '#join', variant: 'cream' },
-    { label: 'Upcoming Events', href: '#events', variant: 'outline' },
-    { label: 'Get Involved', href: '#involved', variant: 'outline' },
+    { label: 'Join Us', href: '/join', variant: 'cream' },
+    { label: 'Upcoming Events', href: '/#events', variant: 'outline' },
   ] satisfies CtaLink[],
   backgroundVideo: '/ysc.mp4',
+  mobileBackgroundVideo: '/mobile.mp4',
   videoWordSegments: [
     { label: 'events', duration: 9 },
     { label: 'fun', duration: 3 },
