@@ -37,7 +37,7 @@ export const SITE_BOTTOM_NAV_LINKS = [
   { label: 'HOME', href: '/#home', icon: 'home' },
   { label: 'ABOUT', href: '/#about', icon: 'about' },
   { label: 'EVENTS', href: '/#events', icon: 'events' },
-  { label: 'INTERVIEWS', href: '/#interviews', icon: 'interviews' },
+  { label: 'DROPS', href: '/#interviews', icon: 'interviews' },
   { label: 'DONATE', href: '/donate', icon: 'donate' },
   { label: 'YOUTH', href: '/youth-collection', icon: 'collection' },
 ] as const satisfies ReadonlyArray<{
