@@ -32,10 +32,6 @@ export function Hero() {
       <Header />
 
       <div className="hero__mobile-ui">
-        <div className="video-words-panel hero__video-words">
-          <VideoSyncedWords segments={videoWordSegments} />
-        </div>
-
         <div className="hero__copy-stack">
           <p className="hero__badge">{heroBadge}</p>
 
@@ -52,6 +48,10 @@ export function Hero() {
           </div>
 
           <p className="hero__subtitle-mobile">{heroSubtitle}</p>
+
+          <div className="video-words-panel hero__video-words">
+            <VideoSyncedWords segments={videoWordSegments} />
+          </div>
         </div>
 
         <div className="hero__footer">
