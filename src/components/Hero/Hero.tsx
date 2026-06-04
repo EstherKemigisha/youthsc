@@ -12,7 +12,9 @@ import './Hero.css'
 export function Hero() {
   const {
     headlineSequences,
-    footerTagline,
+    heroBadge,
+    heroSubtitle,
+    socialFollowLabel,
     socialLinks,
     ctas,
     backgroundVideo,
@@ -29,26 +31,40 @@ export function Hero() {
       <LConnector />
       <Header />
 
-      <div className="hero__copy-stack">
-        <div className="video-words-panel">
+      <div className="hero__mobile-ui">
+        <div className="video-words-panel hero__video-words">
           <VideoSyncedWords segments={videoWordSegments} />
         </div>
 
-        <div className="headline">
-          <AnimatedHeadline sequences={headlineSequences} />
+        <div className="hero__copy-stack">
+          <p className="hero__badge">{heroBadge}</p>
+
+          <div className="headline headline--mobile">
+            <h1 className="headline__mobile-title" aria-label="The culture for Jesus">
+              <span className="headline__line headline__line--the">THE</span>
+              <span className="headline__line headline__line--gold">CULTURE</span>
+              <span className="headline__line headline__line--title">FOR JESUS</span>
+            </h1>
+          </div>
+
+          <div className="headline headline--desktop">
+            <AnimatedHeadline sequences={headlineSequences} />
+          </div>
+
+          <p className="hero__subtitle-mobile">{heroSubtitle}</p>
         </div>
-      </div>
 
-      <div className="hero__footer">
-        <p className="hero__footer-tagline">{footerTagline}</p>
-        <SocialLinks links={socialLinks} />
-      </div>
+        <div className="hero__footer">
+          <p className="hero__footer-tagline">{heroSubtitle}</p>
+          <SocialLinks links={socialLinks} followLabel={socialFollowLabel} />
+        </div>
 
-      <aside className="hero__cta-panel">
-        <HeroActions
-          ctas={ctas.filter((cta) => cta.label.toLowerCase() !== 'get involved')}
-        />
-      </aside>
+        <aside className="hero__cta-panel">
+          <HeroActions
+            ctas={ctas.filter((cta) => cta.label.toLowerCase() !== 'get involved')}
+          />
+        </aside>
+      </div>
     </section>
   )
 }

@@ -4,8 +4,23 @@ type AnimatedHeadlineProps = {
   sequences: readonly HeadlineSequence[]
 }
 
+function lineClassName(line: string) {
+  if (line === 'THE') {
+    return 'headline__line headline__line--the'
+  }
+  if (line === 'CULTURE') {
+    return 'headline__line headline__line--gold headline__title-line--culture'
+  }
+  if (line === 'FOR JESUS') {
+    return 'headline__line headline__line--title'
+  }
+  if (line === 'THE CULTURE') {
+    return 'headline__line headline__title-line--culture'
+  }
+  return 'headline__line'
+}
+
 // Static display only — second sequence & transition loop commented out for now.
-// To re-enable: restore useEffect loop in git history and uncomment sequence 2 in heroContent.ts
 export function AnimatedHeadline({ sequences }: AnimatedHeadlineProps) {
   const current = sequences[0]
   const titleLabel = current.titleLines.join(' ')
@@ -21,12 +36,9 @@ export function AnimatedHeadline({ sequences }: AnimatedHeadlineProps) {
         aria-label={titleLabel}
       >
         {current.titleLines.map((line) => (
-          <span
-            key={line}
-            className={line === 'THE CULTURE' ? 'headline__title-line--culture' : undefined}
-          >
+          <span key={line} className={lineClassName(line)}>
             {line}
-            {line === 'THE CULTURE' && (
+            {(line === 'CULTURE' || line === 'THE CULTURE') && (
               <span className="headline__anchor-point" aria-hidden="true" />
             )}
           </span>

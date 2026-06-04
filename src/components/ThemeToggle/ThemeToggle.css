@@ -64,50 +64,24 @@
 
 @media (max-width: 768px) {
   .theme-toggle {
-    top: calc(4.35rem + env(safe-area-inset-top, 0px));
-    bottom: auto;
+    top: auto;
+    bottom: calc(4.25rem + 0.65rem + env(safe-area-inset-bottom, 0px));
     left: auto;
     right: 1rem;
     gap: 0;
-    padding: 0.28rem;
+    padding: 0.22rem;
     border-radius: 999px;
-    transform: scale(0.88);
-    transform-origin: top right;
+    transform: scale(0.72);
+    transform-origin: bottom right;
+    z-index: 8;
   }
 
   .theme-toggle:hover {
-    transform: scale(0.88) translateY(-1px);
+    transform: scale(0.72) translateY(-1px);
   }
 
   .theme-toggle__label {
     display: none;
-  }
-
-  .theme-toggle__track {
-    width: 1.55rem;
-    height: 0.88rem;
-  }
-
-  .theme-toggle__thumb {
-    width: 0.68rem;
-    height: 0.68rem;
-    left: 1px;
-  }
-
-  .theme-toggle__thumb--light {
-    left: calc(100% - 0.68rem - 1px);
-  }
-}
-
-@media (max-width: 480px) {
-  .theme-toggle {
-    padding: 0.24rem;
-    transform: scale(0.82);
-    transform-origin: top right;
-  }
-
-  .theme-toggle:hover {
-    transform: scale(0.82) translateY(-1px);
   }
 
   .theme-toggle__track {
@@ -118,9 +92,36 @@
   .theme-toggle__thumb {
     width: 0.62rem;
     height: 0.62rem;
+    left: 1px;
   }
 
   .theme-toggle__thumb--light {
     left: calc(100% - 0.62rem - 1px);
+  }
+}
+
+@media (max-width: 480px) {
+  .theme-toggle {
+    padding: 0.2rem;
+    transform: scale(0.68);
+    transform-origin: bottom right;
+  }
+
+  .theme-toggle:hover {
+    transform: scale(0.68) translateY(-1px);
+  }
+
+  .theme-toggle__track {
+    width: 1.3rem;
+    height: 0.74rem;
+  }
+
+  .theme-toggle__thumb {
+    width: 0.56rem;
+    height: 0.56rem;
+  }
+
+  .theme-toggle__thumb--light {
+    left: calc(100% - 0.56rem - 1px);
   }
 }

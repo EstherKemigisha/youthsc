@@ -25,18 +25,19 @@ export const HERO_CONTENT = {
     label: 'Chat on WhatsApp',
     href: 'https://wa.me/',
   },
+  headerBrand: {
+    title: 'YOUTH SATISFIED',
+    subtitle: 'IN CHRIST',
+  },
+  heroBadge: '• WORSHIP • INFLUENCING • CHANGING',
   headlineSequences: [
     {
-      tagline: 'INFLUENCING AND CHANGING',
-      titleLines: ['THE CULTURE', 'FOR JESUS'],
+      tagline: 'WORSHIP · INFLUENCING · CHANGING',
+      titleLines: ['THE', 'CULTURE', 'FOR JESUS'],
     },
-    // Second sequence — commented out for now
-    // {
-    //   tagline: 'Young and on fire 🔥',
-    //   titleLines: ['for Jesus'],
-    // },
   ] satisfies HeadlineSequence[],
-  footerTagline: 'Young and on fire 🔥 for Jesus',
+  heroSubtitle: 'Young & on fire for Jesus',
+  socialFollowLabel: 'FOLLOW US',
   socialLinks: [
     {
       label: 'Instagram',
@@ -52,8 +53,8 @@ export const HERO_CONTENT = {
     { label: 'Facebook', href: 'https://facebook.com', platform: 'facebook' },
   ] satisfies SocialLink[],
   ctas: [
-    { label: 'Join Us', href: '/join', variant: 'cream' },
-    { label: 'Upcoming Events', href: '/#events', variant: 'outline' },
+    { label: 'JOIN US →', href: '/join', variant: 'cream' },
+    { label: 'UPCOMING EVENTS', href: '/#events', variant: 'outline' },
   ] satisfies CtaLink[],
   backgroundVideo: '/ysc.mp4',
   mobileBackgroundVideo: '/mobile.mp4',

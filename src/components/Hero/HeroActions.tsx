@@ -6,6 +6,35 @@ type HeroActionsProps = {
   ctas: readonly CtaLink[]
 }
 
+function CalendarIcon() {
+  return (
+    <svg
+      className="cta-btn__icon"
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
+      <rect
+        x="3"
+        y="5"
+        width="18"
+        height="16"
+        rx="2"
+        stroke="currentColor"
+        strokeWidth="1.75"
+      />
+      <path
+        d="M8 3v4M16 3v4M3 10h18"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinecap="round"
+      />
+    </svg>
+  )
+}
+
 export function HeroActions({ ctas }: HeroActionsProps) {
   const { pathname } = useLocation()
   const navigate = useNavigate()
@@ -35,20 +64,25 @@ export function HeroActions({ ctas }: HeroActionsProps) {
 
   return (
     <nav className="hero__actions" aria-label="Call to action">
-      {ctas.map((cta) => (
-        <button
-          key={cta.label}
-          type="button"
-          className={
-            cta.variant === 'cream'
-              ? 'cta-btn cta-btn--cream'
-              : 'cta-btn cta-btn--outline'
-          }
-          onClick={() => handleCta(cta)}
-        >
-          {cta.label}
-        </button>
-      ))}
+      {ctas.map((cta) => {
+        const isEvents = cta.href.includes('events')
+
+        return (
+          <button
+            key={cta.label}
+            type="button"
+            className={
+              cta.variant === 'cream'
+                ? 'cta-btn cta-btn--cream'
+                : 'cta-btn cta-btn--outline'
+            }
+            onClick={() => handleCta(cta)}
+          >
+            {isEvents ? <CalendarIcon /> : null}
+            <span>{cta.label}</span>
+          </button>
+        )
+      })}
     </nav>
   )
 }
