@@ -2,26 +2,20 @@ import { Link } from 'react-router-dom'
 import { HERO_CONTENT } from '../../data/heroContent'
 import { WhatsAppButton } from './WhatsAppButton'
 
-const LOGO_LETTERS = ['Y', 'S', 'C'] as const
-
 export function Header() {
-  const { whatsapp, headerBrand } = HERO_CONTENT
+  const { whatsapp, headerBrand, logo } = HERO_CONTENT
 
   return (
     <header className="header">
       <Link to="/#home" className="logo" aria-label="YSC Home">
-        <span className="logo__mark" aria-hidden="true">
-          {LOGO_LETTERS.map((letter) => (
-            <span
-              key={letter}
-              className={
-                letter === 'Y' ? 'logo__letter logo__letter--cream' : 'logo__letter'
-              }
-            >
-              {letter}
-            </span>
-          ))}
-        </span>
+        <img
+          className="logo__img"
+          src={logo.src}
+          alt=""
+          width={48}
+          height={48}
+          decoding="async"
+        />
         <span className="logo__brand">
           <span className="logo__brand-title">{headerBrand.title}</span>
           <span className="logo__brand-subtitle">{headerBrand.subtitle}</span>

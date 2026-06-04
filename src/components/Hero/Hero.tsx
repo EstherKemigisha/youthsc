@@ -1,7 +1,6 @@
 import { HERO_CONTENT } from '../../data/heroContent'
 import { AnimatedHeadline } from './AnimatedHeadline'
 import { HeroActions } from './HeroActions'
-import { Chevrons } from './Chevrons'
 import { Header } from './Header'
 import { HeroVideo } from './HeroVideo'
 import { LConnector } from './LConnector'
@@ -27,7 +26,6 @@ export function Hero() {
       <HeroVideo src={backgroundVideo} mobileSrc={mobileBackgroundVideo} />
       <div className="hero__overlay" role="presentation" />
 
-      <Chevrons />
       <LConnector />
       <Header />
 

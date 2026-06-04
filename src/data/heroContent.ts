@@ -25,6 +25,10 @@ export const HERO_CONTENT = {
     label: 'Chat on WhatsApp',
     href: 'https://wa.me/',
   },
+  logo: {
+    src: '/ysc-logo.svg',
+    alt: 'YSC — Youth Satisfied in Christ',
+  },
   headerBrand: {
     title: 'YOUTH SATISFIED',
     subtitle: 'IN CHRIST',
