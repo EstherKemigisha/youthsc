@@ -16,7 +16,7 @@ export const COLLECTION_CONTENT = {
   heroYear: '2026',
   title: 'Youth Collection',
   intro:
-    'Wear the mission. Every item supports Youth Satisfied in Christ and helps us keep gathering, discipling, and sending young people for Jesus.',
+    'More than apparel — it’s purpose. Every item supports Youth Satisfied in Christ as we gather, disciple, and raise a generation grounded in faith to live boldly for Jesus.',
   fulfillment: {
     title: 'Pickup & delivery',
     options: [

@@ -170,7 +170,7 @@ export function DonatePage() {
               <h3>Thank you for giving!</h3>
               <p>
                 We received your pledge. A YSC leader will reach out shortly with
-                payment details (EFT, mobile money, or in-person).
+                payment details (mobile money or in-person).
               </p>
               <Link to="/#home" className="donate-form-section__home-link">
                 Return home

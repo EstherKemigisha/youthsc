@@ -8,6 +8,6 @@ export const ABOUT_CONTENT = {
   highlights: [
     { label: 'Our heart', text: 'Changing the culture for Jesus' },
     { label: 'Our rhythm', text: 'Worship · Word · Community' },
-    { label: 'Our call', text: 'Belong, grow, and go' },
+    { label: 'Our call', text: 'Belong, grow, and inspire' },
   ],
 } as const
