@@ -89,9 +89,6 @@ export function YouthCollectionPage() {
         <Link to="/#home" className="collection-topbar__logo" aria-label="YSC Home">
           YSC
         </Link>
-        <Link to="/donate" className="collection-topbar__link">
-          Donate
-        </Link>
       </header>
 
       <section className="collection-hero" aria-labelledby="collection-hero-title">
@@ -140,9 +137,12 @@ export function YouthCollectionPage() {
                   {product.onSale && (
                     <span className="shop-card__badge">Sale</span>
                   )}
-                  <span
+                  <img
                     className="shop-card__image"
-                    style={{ backgroundImage: `url(${product.image})` }}
+                    src={product.image}
+                    alt={product.name}
+                    loading="lazy"
+                    decoding="async"
                   />
                 </button>
 
