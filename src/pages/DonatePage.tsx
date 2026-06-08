@@ -1,6 +1,6 @@
 import { useEffect, useState, type FormEvent } from 'react'
 import { Link } from 'react-router-dom'
-import { PageBackLink } from '../components/PageBackLink/PageBackLink'
+import { PageHeader } from '../components/PageHeader/PageHeader'
 import { DONATE_CONTENT } from '../data/donateContent'
 import './DonatePage.css'
 
@@ -21,13 +21,6 @@ const emptyDonateForm = (optionId?: string): DonateForm => ({
   amount: '',
   message: '',
 })
-
-const OPTION_VISUALS = [
-  'donate-page__visual--gather',
-  'donate-page__visual--events',
-  'donate-page__visual--resources',
-  'donate-page__visual--scholarship',
-] as const
 
 export function DonatePage() {
   const [submitted, setSubmitted] = useState(false)
@@ -70,7 +63,7 @@ export function DonatePage() {
 
   return (
     <div className="donate-page">
-      <PageBackLink tone="on-dark" />
+      <PageHeader tone="on-dark" />
 
       <section className="donate-hero" aria-labelledby="donate-hero-title">
         <div className="donate-hero__backdrop" aria-hidden="true" />
@@ -112,7 +105,8 @@ export function DonatePage() {
             <li key={option.id}>
               <article className="donate-ways__card">
                 <div
-                  className={`donate-ways__visual ${OPTION_VISUALS[index] ?? OPTION_VISUALS[0]}`}
+                  className="donate-ways__visual"
+                  style={{ backgroundImage: `url('${option.image}')` }}
                   aria-hidden="true"
                 />
                 <div className="donate-ways__body">

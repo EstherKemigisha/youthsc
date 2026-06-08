@@ -35,6 +35,27 @@ function CalendarIcon() {
   )
 }
 
+function ArrowIcon() {
+  return (
+    <svg
+      className="cta-btn__arrow"
+      width="14"
+      height="14"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M5 12h14M13 6l6 6-6 6"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )
+}
+
 export function HeroActions({ ctas }: HeroActionsProps) {
   const { pathname } = useLocation()
   const navigate = useNavigate()
@@ -80,6 +101,7 @@ export function HeroActions({ ctas }: HeroActionsProps) {
           >
             {isEvents ? <CalendarIcon /> : null}
             <span>{cta.label}</span>
+            <ArrowIcon />
           </button>
         )
       })}

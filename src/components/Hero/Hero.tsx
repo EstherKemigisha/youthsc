@@ -2,8 +2,8 @@ import { HERO_CONTENT } from '../../data/heroContent'
 import { AnimatedHeadline } from './AnimatedHeadline'
 import { HeroActions } from './HeroActions'
 import { Header } from './Header'
-import { HeroVideo } from './HeroVideo'
-import { LConnector } from './LConnector'
+import { HeroBackground } from './HeroBackground'
+import { HeadlineLine } from './HeadlineLine'
 import { SocialLinks } from './SocialLinks'
 import { VideoSyncedWords } from './VideoSyncedWords'
 import './Hero.css'
@@ -12,21 +12,21 @@ export function Hero() {
   const {
     headlineSequences,
     heroBadge,
+    heroDescription,
     heroSubtitle,
     socialFollowLabel,
     socialLinks,
     ctas,
-    backgroundVideo,
-    mobileBackgroundVideo,
     videoWordSegments,
   } = HERO_CONTENT
 
+  const mobileHeadline = headlineSequences[0]
+
   return (
     <section id="home" className="hero" aria-label="Hero">
-      <HeroVideo src={backgroundVideo} mobileSrc={mobileBackgroundVideo} />
+      <HeroBackground />
       <div className="hero__overlay" role="presentation" />
 
-      <LConnector />
       <Header />
 
       <div className="hero__mobile-ui">
@@ -34,10 +34,13 @@ export function Hero() {
           <p className="hero__badge">{heroBadge}</p>
 
           <div className="headline headline--mobile">
-            <h1 className="headline__mobile-title" aria-label="The culture for Jesus">
-              <span className="headline__line headline__line--the">THE</span>
-              <span className="headline__line headline__line--gold">CULTURE</span>
-              <span className="headline__line headline__line--title">FOR JESUS</span>
+            <h1
+              className="headline__mobile-title"
+              aria-label={mobileHeadline.titleLines.join(' ')}
+            >
+              {mobileHeadline.titleLines.map((line) => (
+                <HeadlineLine key={line} line={line} />
+              ))}
             </h1>
           </div>
 
@@ -45,16 +48,11 @@ export function Hero() {
             <AnimatedHeadline sequences={headlineSequences} />
           </div>
 
-          <p className="hero__subtitle-mobile">{heroSubtitle}</p>
+          <p className="hero__description">{heroDescription}</p>
 
-          <div className="video-words-panel hero__video-words">
+          <div className="video-words-panel hero__video-words hero__video-words--desktop">
             <VideoSyncedWords segments={videoWordSegments} />
           </div>
-        </div>
-
-        <div className="hero__footer">
-          <p className="hero__footer-tagline">{heroSubtitle}</p>
-          <SocialLinks links={socialLinks} followLabel={socialFollowLabel} />
         </div>
 
         <aside className="hero__cta-panel">
@@ -62,6 +60,11 @@ export function Hero() {
             ctas={ctas.filter((cta) => cta.label.toLowerCase() !== 'get involved')}
           />
         </aside>
+
+        <div className="hero__footer">
+          <p className="hero__footer-tagline">{heroSubtitle}</p>
+          <SocialLinks links={socialLinks} followLabel={socialFollowLabel} />
+        </div>
       </div>
     </section>
   )

@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState, type FormEvent } from 'react'
 import { Link, Navigate, useParams } from 'react-router-dom'
-import { PageBackLink } from '../components/PageBackLink/PageBackLink'
+import { PageHeader } from '../components/PageHeader/PageHeader'
 import {
   EVENTS_CONTENT,
   getEventBySlug,
@@ -60,7 +60,7 @@ export function EventRegistrationPage() {
 
   return (
     <div className="register-page">
-      <PageBackLink to="/#events" label="← Back to events" />
+      <PageHeader backTo="/#events" backLabel="← Back to events" />
       <div className="register-page__glow register-page__glow--1" aria-hidden="true" />
       <div className="register-page__glow register-page__glow--2" aria-hidden="true" />
 

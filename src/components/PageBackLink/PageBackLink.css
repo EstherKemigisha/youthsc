@@ -5,48 +5,35 @@
   z-index: 920;
   display: inline-flex;
   align-items: center;
-  padding: 0.45rem 0.65rem;
+  padding: 0.15rem 0;
   font-family: var(--font);
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-decoration: none;
   color: var(--orange-bright);
-  background: var(--surface-elevated);
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  box-shadow: var(--shadow-soft);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  transition:
-    color 0.2s ease,
-    border-color 0.2s ease,
-    background 0.2s ease;
+  background: none;
+  border: none;
+  box-shadow: none;
+  transition: color 0.2s ease;
 }
 
 .page-back-link:hover,
 .page-back-link:focus-visible {
   color: var(--heading);
-  border-color: var(--orange-bright);
-  background: rgba(245, 166, 35, 0.12);
 }
 
 .page-back-link--on-dark {
-  color: rgba(255, 255, 255, 0.9);
-  background: rgba(10, 10, 10, 0.55);
-  border-color: rgba(255, 255, 255, 0.22);
+  color: rgba(255, 255, 255, 0.92);
 }
 
 .page-back-link--on-dark:hover,
 .page-back-link--on-dark:focus-visible {
   color: var(--orange-bright);
-  border-color: var(--orange-bright);
-  background: rgba(10, 10, 10, 0.75);
 }
 
 @media (max-width: 768px) {
   .page-back-link {
     font-size: 0.72rem;
-    padding: 0.4rem 0.55rem;
   }
 }

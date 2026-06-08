@@ -2,7 +2,6 @@ import type { ReactNode } from 'react'
 import { BottomNav } from '../BottomNav/BottomNav'
 import { Footer } from '../Footer/Footer'
 import { HashScrollHandler } from './HashScrollHandler'
-import { ThemeToggle } from '../ThemeToggle/ThemeToggle'
 
 type SiteLayoutProps = {
   children: ReactNode
@@ -15,7 +14,6 @@ export function SiteLayout({ children }: SiteLayoutProps) {
       {children}
       <Footer />
       <BottomNav />
-      <ThemeToggle />
     </>
   )
 }

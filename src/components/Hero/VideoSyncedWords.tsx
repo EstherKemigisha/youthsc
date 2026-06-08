@@ -29,8 +29,7 @@ export function VideoSyncedWords({ segments }: VideoSyncedWordsProps) {
   const transitioningRef = useRef(false)
 
   useEffect(() => {
-    const video = document.querySelector<HTMLVideoElement>('.hero__video')
-    if (!video || segments.length === 0) return
+    if (segments.length === 0) return
 
     const switchToIndex = (next: number) => {
       if (next === indexRef.current || transitioningRef.current) return
@@ -46,25 +45,47 @@ export function VideoSyncedWords({ segments }: VideoSyncedWordsProps) {
       }, 380)
     }
 
-    const syncToVideoTime = () => {
-      const next = getIndexForTime(video.currentTime, segments)
+    const video = document.querySelector<HTMLVideoElement>('.hero__video')
 
-      if (next !== indexRef.current) {
-        switchToIndex(next)
+    if (video) {
+      const syncToVideoTime = () => {
+        const next = getIndexForTime(video.currentTime, segments)
+
+        if (next !== indexRef.current) {
+          switchToIndex(next)
+        }
+      }
+
+      video.addEventListener('timeupdate', syncToVideoTime)
+      video.addEventListener('loadedmetadata', syncToVideoTime)
+      video.addEventListener('seeked', syncToVideoTime)
+
+      syncToVideoTime()
+
+      return () => {
+        video.removeEventListener('timeupdate', syncToVideoTime)
+        video.removeEventListener('loadedmetadata', syncToVideoTime)
+        video.removeEventListener('seeked', syncToVideoTime)
       }
     }
 
-    video.addEventListener('timeupdate', syncToVideoTime)
-    video.addEventListener('loadedmetadata', syncToVideoTime)
-    video.addEventListener('seeked', syncToVideoTime)
+    const totalDuration = segments.reduce(
+      (sum, segment) => sum + (segment.duration >= 999 ? 3 : segment.duration),
+      0,
+    )
+    let elapsed = 0
 
-    syncToVideoTime()
+    const intervalId = window.setInterval(() => {
+      elapsed += 0.5
+      if (elapsed >= totalDuration) elapsed = 0
 
-    return () => {
-      video.removeEventListener('timeupdate', syncToVideoTime)
-      video.removeEventListener('loadedmetadata', syncToVideoTime)
-      video.removeEventListener('seeked', syncToVideoTime)
-    }
+      const next = getIndexForTime(elapsed, segments)
+      if (next !== indexRef.current) {
+        switchToIndex(next)
+      }
+    }, 500)
+
+    return () => window.clearInterval(intervalId)
   }, [segments])
 
   return (

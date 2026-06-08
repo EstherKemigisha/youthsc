@@ -34,7 +34,7 @@ export const COLLECTION_CONTENT = {
       compareAtPrice: '$28',
       onSale: true,
       description: 'Soft cotton tees with the YSC logo — unisex sizes S–XXL.',
-      image: '/events/collection-new-1.png',
+      image: '/events/collection-tees.png',
       reviewCount: 24,
     },
     {
@@ -43,7 +43,7 @@ export const COLLECTION_CONTENT = {
       tagline: 'Stay warm, stay on mission',
       price: '$38',
       description: 'Cozy hoodies perfect for hangouts, events, and outreach nights.',
-      image: '/events/collection-new-2.png',
+      image: '/events/collection-hoodies.png',
       reviewCount: 31,
     },
     {
@@ -52,7 +52,7 @@ export const COLLECTION_CONTENT = {
       tagline: 'A daily reminder',
       price: '$6',
       description: 'Silicone bands with scripture and YSC branding — great for outreach.',
-      image: '/events/collection-new-3.png',
+      image: '/events/collection-wristbands.png',
       reviewCount: 18,
     },
     {
@@ -61,7 +61,7 @@ export const COLLECTION_CONTENT = {
       tagline: 'Word-centered',
       price: '$15',
       description: 'Study and gift Bibles for new believers and small groups.',
-      image: '/events/collection-new-4.png',
+      image: '/events/collection-bibles.png',
       reviewCount: 12,
     },
     {
@@ -72,7 +72,7 @@ export const COLLECTION_CONTENT = {
       compareAtPrice: '$16',
       onSale: true,
       description: 'Curated devotionals to help youth build a daily habit with God.',
-      image: '/events/collection-new-5.png',
+      image: '/events/collection-devotionals.png',
       reviewCount: 9,
     },
     {
@@ -81,7 +81,7 @@ export const COLLECTION_CONTENT = {
       tagline: 'Go deeper',
       price: '$18',
       description: 'Faith-building books selected by our leaders for teens and young adults.',
-      image: '/events/collection-new-6.png',
+      image: '/events/collection-books.png',
       reviewCount: 15,
     },
   ] satisfies CollectionProduct[],

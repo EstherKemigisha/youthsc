@@ -26,20 +26,26 @@ export const HERO_CONTENT = {
     href: 'https://wa.me/',
   },
   logo: {
-    src: '/ysc-logo.svg',
+    src: '/ysc-logo.png',
     alt: 'YSC — Youth Satisfied in Christ',
+  },
+  heroImage: {
+    src: '/hero/hero-worship.png',
+    alt: 'Youth worshipping together at a YSC gathering',
   },
   headerBrand: {
     title: 'YOUTH SATISFIED',
     subtitle: 'IN CHRIST',
   },
-  heroBadge: '• WORSHIP • INFLUENCING • CHANGING',
+  heroBadge: 'FAITH · COMMUNITY · PURPOSE',
   headlineSequences: [
     {
-      tagline: 'WORSHIP · INFLUENCING · CHANGING',
-      titleLines: ['THE', 'CULTURE', 'FOR JESUS'],
+      tagline: 'FAITH · COMMUNITY · PURPOSE',
+      titleLines: ['A GENERATION', 'SATISFIED', 'in Christ'],
     },
   ] satisfies HeadlineSequence[],
+  heroDescription:
+    'A community of young people influencing and changing the culture for Jesus 👌🏼, young and on fire 🔥 for Jesus.',
   heroSubtitle: 'Young & on fire for Jesus',
   socialFollowLabel: 'FOLLOW US',
   socialLinks: [
@@ -57,7 +63,7 @@ export const HERO_CONTENT = {
     { label: 'Facebook', href: 'https://facebook.com', platform: 'facebook' },
   ] satisfies SocialLink[],
   ctas: [
-    { label: 'JOIN US →', href: '/join', variant: 'cream' },
+    { label: 'JOIN THE COMMUNITY', href: '/join', variant: 'cream' },
     { label: 'UPCOMING EVENTS', href: '/#events', variant: 'outline' },
   ] satisfies CtaLink[],
   backgroundVideo: '/ysc.mp4',

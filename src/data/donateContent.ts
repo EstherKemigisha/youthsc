@@ -4,6 +4,7 @@ export type DonationOption = {
   amountLabel: string
   description: string
   suggestedAmount?: string
+  image: string
 }
 
 export const DONATE_CONTENT = {
@@ -39,6 +40,7 @@ export const DONATE_CONTENT = {
       amountLabel: 'Any amount',
       description: 'Supports everything YSC does — gatherings, outreach, and discipleship.',
       suggestedAmount: 'From $10',
+      image: '/events/donate-general.png',
     },
     {
       id: 'events',
@@ -46,6 +48,7 @@ export const DONATE_CONTENT = {
       amountLabel: 'Event partner',
       description: 'Helps fund hangouts, camps, and community outreaches.',
       suggestedAmount: 'From $25',
+      image: '/events/donate-events.png',
     },
     {
       id: 'resources',
@@ -53,6 +56,7 @@ export const DONATE_CONTENT = {
       amountLabel: 'Resource pack',
       description: 'Provides Bibles, devotionals, and study materials for youth.',
       suggestedAmount: 'From $15',
+      image: '/events/bible-study.png',
     },
     {
       id: 'scholarship',
@@ -60,6 +64,7 @@ export const DONATE_CONTENT = {
       amountLabel: 'Sponsor a young person',
       description: 'Covers fees, transport, or gear so someone can fully participate.',
       suggestedAmount: 'From $50',
+      image: '/events/donate-scholarship.png',
     },
   ] satisfies DonationOption[],
   ctaNote:

@@ -729,25 +729,16 @@
 .collection-order__home {
   display: inline-flex;
   margin-top: 1.25rem;
-  padding: 0.55rem 1rem;
-  font-size: 0.72rem;
+  font-size: 0.8rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  letter-spacing: 0.06em;
   color: var(--orange-bright);
   text-decoration: none;
-  border: 1px solid var(--order-card-border);
-  border-radius: 2px;
-  transition:
-    color 0.2s ease,
-    border-color 0.2s ease,
-    background 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 .collection-order__home:hover {
   color: var(--heading);
-  border-color: var(--orange-bright);
-  background: rgba(245, 166, 35, 0.08);
 }
 
 @media (max-width: 1024px) {

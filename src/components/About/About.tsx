@@ -33,12 +33,13 @@ export function About() {
           <div className="about__main">
             <h2 id="about-title" className="about__title">
               {title}
+              <span className="about__title-rule" aria-hidden="true" />
             </h2>
-            <div className="about__copy">
+            <ul className="about__copy">
               {paragraphs.map((paragraph, index) => (
-                <p key={index}>{paragraph}</p>
+                <li key={index}>{paragraph}</li>
               ))}
-            </div>
+            </ul>
           </div>
 
           <aside className="about__panel" aria-label="Highlights">

@@ -1,6 +1,6 @@
 import { useEffect, useState, type FormEvent } from 'react'
 import { Link } from 'react-router-dom'
-import { PageBackLink } from '../components/PageBackLink/PageBackLink'
+import { PageHeader } from '../components/PageHeader/PageHeader'
 import { COLLECTION_CONTENT } from '../data/collectionContent'
 import './YouthCollectionPage.css'
 
@@ -84,12 +84,7 @@ export function YouthCollectionPage() {
 
   return (
     <div className="collection-page">
-      <PageBackLink />
-      <header className="collection-topbar">
-        <Link to="/#home" className="collection-topbar__logo" aria-label="YSC Home">
-          YSC
-        </Link>
-      </header>
+      <PageHeader />
 
       <section className="collection-hero" aria-labelledby="collection-hero-title">
         <div
