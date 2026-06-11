@@ -60,7 +60,7 @@ export function EventRegistrationPage() {
 
   return (
     <div className="register-page">
-      <PageHeader backTo="/#events" backLabel="← Back to events" />
+      <PageHeader backTo="/#events" backAriaLabel="Back to events" />
       <div className="register-page__glow register-page__glow--1" aria-hidden="true" />
       <div className="register-page__glow register-page__glow--2" aria-hidden="true" />
 
@@ -86,8 +86,8 @@ export function EventRegistrationPage() {
                 <strong>{selectedEvent.title}</strong> on {selectedEvent.date} at{' '}
                 {selectedEvent.time}.
               </p>
-              <Link to="/#events" className="register-page__submit">
-                Back to events
+              <Link to="/#events" className="register-page__submit" aria-label="Back to events">
+                ←
               </Link>
             </div>
           ) : (

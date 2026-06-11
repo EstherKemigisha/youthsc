@@ -1,10 +1,9 @@
 import { Link } from 'react-router-dom'
 import { HERO_CONTENT } from '../../data/heroContent'
 import { ThemeToggle } from '../ThemeToggle/ThemeToggle'
-import { WhatsAppButton } from './WhatsAppButton'
 
 export function Header() {
-  const { whatsapp, headerBrand, logo } = HERO_CONTENT
+  const { headerBrand, logo } = HERO_CONTENT
 
   return (
     <header className="header site-header-bar">
@@ -18,15 +17,19 @@ export function Header() {
             height={144}
             decoding="async"
           />
-          <span className="site-header-brand">
+          <span className="site-header-brand site-header-brand--beside-logo">
             <span className="site-header-brand__title">{headerBrand.title}</span>
             <span className="site-header-brand__subtitle">{headerBrand.subtitle}</span>
           </span>
         </Link>
 
+        <p className="header__center-brand">
+          <span className="header__center-brand-title">{headerBrand.title}</span>
+          <span className="header__center-brand-subtitle">{headerBrand.subtitle}</span>
+        </p>
+
         <div className="header__actions">
           <ThemeToggle variant="hero" />
-          <WhatsAppButton href={whatsapp.href} label={whatsapp.label} />
         </div>
       </div>
       <span className="site-header-bar__accent" aria-hidden="true" />

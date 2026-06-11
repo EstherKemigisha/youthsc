@@ -728,10 +728,14 @@
 
 .collection-order__home {
   display: inline-flex;
+  align-items: center;
+  justify-content: center;
   margin-top: 1.25rem;
-  font-size: 0.8rem;
+  min-width: 2.25rem;
+  min-height: 2.25rem;
+  font-size: 1.35rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
+  line-height: 1;
   color: var(--orange-bright);
   text-decoration: none;
   transition: color 0.2s ease;

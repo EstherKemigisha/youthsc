@@ -5,25 +5,23 @@ import './PageHeader.css'
 
 type PageHeaderProps = {
   backTo?: string
-  backLabel?: string
-  tone?: 'default' | 'on-dark'
+  backAriaLabel?: string
 }
 
 export function PageHeader({
   backTo = '/#home',
-  backLabel = '← Back home',
-  tone = 'default',
+  backAriaLabel = 'Back home',
 }: PageHeaderProps) {
-  const { logo } = HERO_CONTENT
+  const { headerBrand, logo } = HERO_CONTENT
 
   return (
-    <header
-      className={`page-header site-header-bar${
-        tone === 'on-dark' ? ' site-header-bar--on-dark' : ''
-      }`}
-    >
-      <div className="site-header-bar__inner">
-        <Link to="/#home" className="page-header__logo" aria-label="YSC Home">
+    <header className="page-header site-header-bar site-header-bar--page">
+      <div className="site-header-bar__inner page-header__inner header__inner">
+        <Link
+          to="/#home"
+          className="page-header__logo site-header-logo"
+          aria-label="YSC Home"
+        >
           <img
             className="page-header__logo-img site-logo-img"
             src={logo.src}
@@ -34,15 +32,19 @@ export function PageHeader({
           />
         </Link>
 
-        <div className="page-header__actions">
-          <ThemeToggle variant={tone === 'on-dark' ? 'hero' : 'default'} />
+        <p className="page-header__center-brand header__center-brand">
+          <span className="header__center-brand-title">{headerBrand.title}</span>
+          <span className="header__center-brand-subtitle">{headerBrand.subtitle}</span>
+        </p>
+
+        <div className="page-header__actions header__actions">
+          <ThemeToggle variant="hero" />
           <Link
             to={backTo}
-            className={`page-header__back${
-              tone === 'on-dark' ? ' page-header__back--on-dark' : ''
-            }`}
+            className="page-header__back"
+            aria-label={backAriaLabel}
           >
-            {backLabel}
+            ←
           </Link>
         </div>
       </div>

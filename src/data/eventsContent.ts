@@ -16,18 +16,6 @@ export const EVENTS_CONTENT = {
   registerCta: 'Register for an event',
   events: [
     {
-      id: 'friday-hangout',
-      slug: 'friday-night-hangout',
-      title: 'Friday Night Hangout',
-      date: 'Jun 6, 2026',
-      time: '7:00 PM',
-      location: 'YSC Main Hall',
-      description:
-        'Games, worship, and good vibes. Bring a friend and come as you are.',
-      image: '/events/friday-hangout.png',
-      imageAlt: 'Young people worshipping together at a hangout',
-    },
-    {
       id: 'bible-study',
       slug: 'bible-study-prayer',
       title: 'Bible Study & Prayer',
@@ -38,6 +26,19 @@ export const EVENTS_CONTENT = {
         'Dive into the Word together and pray over what God is doing in our city.',
       image: '/events/bible-study.png',
       imageAlt: 'Open Bibles and notes during a study session',
+    },
+    {
+      id: 'friday-hangout',
+      slug: 'friday-night-hangout',
+      title: 'Friday Night Hangout',
+      date: 'Jun 6, 2026',
+      time: '7:00 PM',
+      location: 'YSC Main Hall',
+      description:
+        'Games, worship, and good vibes. Bring a friend and come as you are.',
+      image: '/events/friday-hangout.png',
+      imageAlt:
+        'Young people performing on stage at a Friday night hangout — jerseys, worship, and high energy',
     },
     {
       id: 'city-outreach',

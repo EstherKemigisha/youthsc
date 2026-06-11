@@ -8,6 +8,11 @@
   background: var(--bg);
 }
 
+[data-theme='light'] .donate-page {
+  --donate-panel: #f5f5f5;
+  --donate-panel-soft: #ffffff;
+}
+
 /* Hero */
 .donate-hero {
   position: relative;
@@ -136,6 +141,54 @@
 }
 
 .donate-hero__cta--ghost:hover {
+  border-color: var(--orange-bright);
+  color: var(--orange-bright);
+}
+
+[data-theme='light'] .donate-hero {
+  color: var(--heading);
+  background: var(--bg);
+}
+
+[data-theme='light'] .donate-hero__backdrop {
+  opacity: 0.22;
+  filter: grayscale(0.4) contrast(1.02);
+}
+
+[data-theme='light'] .donate-hero__overlay {
+  background:
+    radial-gradient(
+      ellipse 70% 55% at 50% 40%,
+      rgba(245, 166, 35, 0.12) 0%,
+      transparent 55%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.88) 0%,
+      rgba(255, 255, 255, 0.96) 45%,
+      rgba(255, 255, 255, 0.98) 100%
+    );
+}
+
+[data-theme='light'] .donate-hero__intro {
+  color: var(--text-muted);
+}
+
+[data-theme='light'] .donate-hero__cta--primary {
+  color: #0a0a0a;
+  background: var(--orange-bright);
+}
+
+[data-theme='light'] .donate-hero__cta--primary:hover {
+  background: linear-gradient(180deg, #ffc850 0%, var(--orange-bright) 100%);
+}
+
+[data-theme='light'] .donate-hero__cta--ghost {
+  color: var(--heading);
+  border-color: var(--border);
+}
+
+[data-theme='light'] .donate-hero__cta--ghost:hover {
   border-color: var(--orange-bright);
   color: var(--orange-bright);
 }
@@ -273,6 +326,54 @@
   background: var(--orange-bright);
   border-color: var(--orange-bright);
   color: var(--donate-ink);
+}
+
+[data-theme='light'] .donate-ways {
+  background: var(--bg);
+  color: var(--heading);
+}
+
+[data-theme='light'] .donate-ways__subtitle {
+  color: var(--text-muted);
+}
+
+[data-theme='light'] .donate-ways__card {
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-soft);
+}
+
+[data-theme='light'] .donate-ways__body {
+  border-top-color: rgba(245, 166, 35, 0.2);
+}
+
+[data-theme='light'] .donate-ways__card-title {
+  color: var(--heading);
+}
+
+[data-theme='light'] .donate-ways__card-desc {
+  color: var(--text-muted);
+}
+
+[data-theme='light'] .donate-ways__btn {
+  color: var(--heading);
+  border-color: var(--border);
+}
+
+[data-theme='light'] .donate-ways__btn:hover {
+  border-color: var(--orange-bright);
+  color: var(--orange-bright);
+}
+
+[data-theme='light'] .donate-ways__btn--fill {
+  color: #0a0a0a;
+  background: var(--orange-bright);
+  border-color: var(--orange-bright);
+}
+
+[data-theme='light'] .donate-ways__btn--fill:hover {
+  background: linear-gradient(180deg, #ffc850 0%, var(--orange-bright) 100%);
+  border-color: var(--orange-bright);
+  color: #0a0a0a;
 }
 
 /* Trust panels */
@@ -469,11 +570,14 @@
 
 .donate-form-section__home-link {
   display: inline-flex;
+  align-items: center;
+  justify-content: center;
   margin-top: 1.25rem;
-  font-size: 0.8rem;
+  min-width: 2.25rem;
+  min-height: 2.25rem;
+  font-size: 1.35rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  line-height: 1;
   color: var(--orange-bright);
   text-decoration: none;
 }

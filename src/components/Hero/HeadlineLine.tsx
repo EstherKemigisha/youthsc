@@ -16,5 +16,11 @@ export function HeadlineLine({ line }: HeadlineLineProps) {
     )
   }
 
+  if (line === 'SATISFIED') {
+    return (
+      <span className={headlineLineClassName(line)}>Satisfied</span>
+    )
+  }
+
   return <span className={headlineLineClassName(line)}>{line}</span>
 }

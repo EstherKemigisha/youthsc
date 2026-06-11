@@ -4,7 +4,11 @@ import { SITE_NAV_LINKS } from '../../data/siteNav'
 import { MenuNavIcon } from './MenuNavIcon'
 import './SiteMenu.css'
 
-export function SiteMenu() {
+type SiteMenuProps = {
+  variant?: 'text' | 'icon'
+}
+
+export function SiteMenu({ variant = 'text' }: SiteMenuProps) {
   const [open, setOpen] = useState(false)
   const panelId = useId()
   const rootRef = useRef<HTMLDivElement>(null)
@@ -33,16 +37,28 @@ export function SiteMenu() {
     <div className="site-menu" ref={rootRef}>
       <button
         type="button"
-        className={`site-menu__trigger${open ? ' site-menu__trigger--open' : ''}`}
+        className={`site-menu__trigger${
+          variant === 'icon' ? ' site-menu__trigger--icon' : ''
+        }${open ? ' site-menu__trigger--open' : ''}`}
         aria-expanded={open}
         aria-controls={panelId}
         aria-label={open ? 'Close menu' : 'Open menu'}
         onClick={() => setOpen((value) => !value)}
       >
-        MENU{' '}
-        <span className="site-menu__mark" aria-hidden="true">
-          {open ? '−' : '+'}
-        </span>
+        {variant === 'icon' ? (
+          <span className="site-menu__bars" aria-hidden="true">
+            <span />
+            <span />
+            <span />
+          </span>
+        ) : (
+          <>
+            MENU{' '}
+            <span className="site-menu__mark" aria-hidden="true">
+              {open ? '−' : '+'}
+            </span>
+          </>
+        )}
       </button>
 
       <div

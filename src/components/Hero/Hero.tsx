@@ -16,6 +16,7 @@ export function Hero() {
     heroSubtitle,
     socialFollowLabel,
     socialLinks,
+    heroPrimaryCta,
     ctas,
     videoWordSegments,
   } = HERO_CONTENT
@@ -31,7 +32,7 @@ export function Hero() {
 
       <div className="hero__mobile-ui">
         <div className="hero__copy-stack">
-          <p className="hero__badge">{heroBadge}</p>
+          <p className="hero__tagline-text">{heroBadge}</p>
 
           <div className="headline headline--mobile">
             <h1
@@ -57,7 +58,10 @@ export function Hero() {
 
         <aside className="hero__cta-panel">
           <HeroActions
-            ctas={ctas.filter((cta) => cta.label.toLowerCase() !== 'get involved')}
+            primaryCta={heroPrimaryCta}
+            desktopCtas={ctas.filter(
+              (cta) => cta.label.toLowerCase() !== 'get involved',
+            )}
           />
         </aside>
 

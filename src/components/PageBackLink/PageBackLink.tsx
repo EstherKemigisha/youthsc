@@ -9,7 +9,7 @@ type PageBackLinkProps = {
 
 export function PageBackLink({
   to = '/#home',
-  label = '← Back home',
+  label = '←',
   tone = 'default',
 }: PageBackLinkProps) {
   return (

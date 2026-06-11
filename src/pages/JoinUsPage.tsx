@@ -81,8 +81,8 @@ export function JoinUsPage() {
               Thanks, {form.fullName.split(' ')[0] || 'friend'}. Someone from YSC will
               connect with you soon.
             </p>
-            <Link to="/#home" className="join-page__home-link">
-              Back to home
+            <Link to="/#home" className="join-page__home-link" aria-label="Back home">
+              ←
             </Link>
           </div>
         ) : (

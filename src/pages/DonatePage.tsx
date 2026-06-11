@@ -63,7 +63,7 @@ export function DonatePage() {
 
   return (
     <div className="donate-page">
-      <PageHeader tone="on-dark" />
+      <PageHeader />
 
       <section className="donate-hero" aria-labelledby="donate-hero-title">
         <div className="donate-hero__backdrop" aria-hidden="true" />
@@ -166,8 +166,8 @@ export function DonatePage() {
                 We received your pledge. A YSC leader will reach out shortly with
                 payment details (mobile money or in-person).
               </p>
-              <Link to="/#home" className="donate-form-section__home-link">
-                Return home
+              <Link to="/#home" className="donate-form-section__home-link" aria-label="Back home">
+                ←
               </Link>
             </div>
           ) : (

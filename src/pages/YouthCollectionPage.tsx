@@ -191,8 +191,8 @@ export function YouthCollectionPage() {
                 Thanks! We will confirm your items, total, and pickup or delivery
                 details soon.
               </p>
-              <Link to="/#home" className="collection-order__home">
-                Back to home
+              <Link to="/#home" className="collection-order__home" aria-label="Back home">
+                ←
               </Link>
             </div>
           ) : (

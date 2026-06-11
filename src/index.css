@@ -47,13 +47,6 @@
   --overlay-scrim: rgba(255, 255, 255, 0.97);
 }
 
-/* Hero stays over video — keep light text in light mode */
-[data-theme='light'] .hero {
-  --white: #ffffff;
-  --cream: #f8f2e4;
-  color: #ffffff;
-}
-
 /* Readable text on white sections in light mode */
 [data-theme='light'] .about__title,
 [data-theme='light'] .events__card-title,
@@ -396,15 +389,21 @@ img {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
+  z-index: 1100;
   background: transparent;
   border: none;
   box-shadow: none;
 }
 
-[data-theme='light'] .site-header-bar,
-.site-header-bar--on-dark {
-  background: transparent;
+/* Sub-page header — solid bar stays visible while scrolling */
+.site-header-bar--page {
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme='dark'] .site-header-bar--page {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
 }
 
 .site-header-bar__inner {
