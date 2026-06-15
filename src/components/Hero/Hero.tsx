@@ -8,7 +8,6 @@ import { HeadlineLine } from './HeadlineLine'
 import { SocialLinks } from './SocialLinks'
 import { VideoSyncedWords } from './VideoSyncedWords'
 import './Hero.css'
-import './HeroSeam.css'
 
 export function Hero() {
   const {
@@ -71,15 +70,6 @@ export function Hero() {
         <div className="hero__footer">
           <p className="hero__footer-tagline">{heroSubtitle}</p>
           <SocialLinks links={socialLinks} followLabel={socialFollowLabel} />
-        </div>
-      </div>
-
-      <div className="hero__seam" aria-hidden="true">
-        <div className="hero__seam-fade" />
-        <div className="hero__seam-rule">
-          <span className="hero__seam-wing hero__seam-wing--left" />
-          <span className="hero__seam-mark" />
-          <span className="hero__seam-wing hero__seam-wing--right" />
         </div>
       </div>
     </section>
