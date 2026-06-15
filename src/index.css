@@ -63,7 +63,6 @@
 
 [data-theme='light'] .about__copy li,
 [data-theme='light'] .events__time,
-[data-theme='light'] .events__card-cta,
 [data-theme='light'] .interviews__slide-cta,
 [data-theme='light'] .interviews__resource-link,
 [data-theme='light'] .site-footer__link,
@@ -78,7 +77,6 @@
   color: var(--orange-deep);
 }
 
-[data-theme='light'] .events__card-cta:hover,
 [data-theme='light'] .interviews__resource-link:hover {
   color: var(--heading);
 }
@@ -133,6 +131,21 @@
 [data-theme='light'] .events__description,
 [data-theme='light'] .events__intro {
   color: var(--text-muted);
+}
+
+[data-theme='light'] .events__card-cta,
+[data-theme='light'] .events__card:hover .events__card-cta {
+  color: #0a0a0a;
+  border-color: var(--orange-bright);
+  background: linear-gradient(135deg, var(--orange-bright) 0%, var(--orange) 100%);
+  box-shadow: 0 4px 16px rgba(245, 166, 35, 0.28);
+}
+
+[data-theme='light'] .events__card-cta:hover {
+  color: #0a0a0a;
+  border-color: var(--orange-bright);
+  background: linear-gradient(180deg, #ffc850 0%, var(--orange-bright) 100%);
+  box-shadow: 0 6px 22px rgba(245, 166, 35, 0.38);
 }
 
 [data-theme='light'] .interviews__description,
@@ -288,7 +301,7 @@ body {
 #about,
 #events,
 #interviews {
-  scroll-margin-bottom: calc(4.25rem + env(safe-area-inset-bottom, 0px) + 0.75rem);
+  scroll-margin-bottom: 0.75rem;
 }
 
 #home {
@@ -296,10 +309,6 @@ body {
 }
 
 @media (max-width: 900px) {
-  body {
-    padding-bottom: calc(4.25rem + env(safe-area-inset-bottom, 0px));
-  }
-
   .site-footer {
     margin-bottom: 0.5rem;
   }

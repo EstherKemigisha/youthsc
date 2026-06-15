@@ -1,13 +1,31 @@
 import { Link } from 'react-router-dom'
+import { useTheme } from '../../context/ThemeContext'
 import { HERO_CONTENT } from '../../data/heroContent'
 import { ThemeToggle } from '../ThemeToggle/ThemeToggle'
+import { SiteMenu } from './SiteMenu'
+
+const HERO_LOGO_DARK = '/ysc-logo-hero.png'
+const HERO_LOGO_LIGHT = '/ysc-logo-hero-light.png'
 
 export function Header() {
+  const { theme } = useTheme()
   const { headerBrand, logo } = HERO_CONTENT
+  const heroLogoSrc = theme === 'light' ? HERO_LOGO_LIGHT : HERO_LOGO_DARK
 
   return (
     <header className="header site-header-bar">
       <div className="site-header-bar__inner header__inner">
+        <Link to="/#home" className="header__wordmark" aria-label="YSC Home">
+          <img
+            className="header__wordmark-logo"
+            src={heroLogoSrc}
+            alt={logo.alt}
+            width={280}
+            height={96}
+            decoding="async"
+          />
+        </Link>
+
         <Link to="/#home" className="logo site-header-logo" aria-label="YSC Home">
           <img
             className="logo__img site-logo-img"
@@ -29,6 +47,7 @@ export function Header() {
         </p>
 
         <div className="header__actions">
+          <SiteMenu />
           <ThemeToggle variant="hero" />
         </div>
       </div>

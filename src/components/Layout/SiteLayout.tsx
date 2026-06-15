@@ -1,5 +1,4 @@
 import type { ReactNode } from 'react'
-import { BottomNav } from '../BottomNav/BottomNav'
 import { Footer } from '../Footer/Footer'
 import { HashScrollHandler } from './HashScrollHandler'
 
@@ -13,7 +12,6 @@ export function SiteLayout({ children }: SiteLayoutProps) {
       <HashScrollHandler />
       {children}
       <Footer />
-      <BottomNav />
     </>
   )
 }

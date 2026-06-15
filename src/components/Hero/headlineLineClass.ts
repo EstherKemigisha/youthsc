@@ -3,7 +3,7 @@ export function headlineLineClassName(line: string) {
     return 'headline__line headline__line--generation'
   }
   if (line === 'SATISFIED') {
-    return 'headline__line headline__line--serif'
+    return 'headline__line headline__line--serif headline__line--satisfied'
   }
   if (line === 'in Christ') {
     return 'headline__line headline__line--script'

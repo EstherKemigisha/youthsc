@@ -10,7 +10,7 @@ type JoinForm = {
   phone: string
   ageRange: string
   location: string
-  interests: string[]
+  interest: string
   message: string
 }
 
@@ -20,7 +20,7 @@ const emptyForm = (): JoinForm => ({
   phone: '',
   ageRange: '',
   location: '',
-  interests: [],
+  interest: '',
   message: '',
 })
 
@@ -44,15 +44,6 @@ export function JoinUsPage() {
 
   const updateField = <K extends keyof JoinForm>(field: K, value: JoinForm[K]) => {
     setForm((prev) => ({ ...prev, [field]: value }))
-  }
-
-  const toggleInterest = (interest: string) => {
-    setForm((prev) => ({
-      ...prev,
-      interests: prev.interests.includes(interest)
-        ? prev.interests.filter((item) => item !== interest)
-        : [...prev.interests, interest],
-    }))
   }
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
@@ -165,29 +156,25 @@ export function JoinUsPage() {
               <p className="join-page__hint">{fieldHints.location}</p>
             </div>
 
-            <fieldset className="join-page__group join-page__fieldset">
-              <legend className="join-page__group-label">
-                What are you hoping to gain from YSC?
-              </legend>
-              <div className="join-page__checks">
-                {interests.map((interest) => {
-                  const checked = form.interests.includes(interest)
-                  return (
-                    <label
-                      key={interest}
-                      className={`join-page__check${checked ? ' join-page__check--active' : ''}`}
-                    >
-                      <input
-                        type="checkbox"
-                        checked={checked}
-                        onChange={() => toggleInterest(interest)}
-                      />
-                      <span>{interest}</span>
-                    </label>
-                  )
-                })}
-              </div>
-            </fieldset>
+            <div className="join-page__group">
+              <label className="join-page__field join-page__field--full">
+                <span>What are you hoping to gain from YSC?</span>
+                <select
+                  required
+                  value={form.interest}
+                  onChange={(e) => updateField('interest', e.target.value)}
+                >
+                  <option value="" disabled>
+                    Select…
+                  </option>
+                  {interests.map((interest) => (
+                    <option key={interest} value={interest}>
+                      {interest}
+                    </option>
+                  ))}
+                </select>
+              </label>
+            </div>
 
             <div className="join-page__group join-page__group--last">
               <label className="join-page__field join-page__field--full">
