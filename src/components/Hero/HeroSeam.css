@@ -1,0 +1,87 @@
+/* Hero → About seam */
+.hero .hero__seam {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 6;
+  height: clamp(5.5rem, 16vh, 8.5rem);
+  pointer-events: none;
+}
+
+.hero .hero__seam-fade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(10, 10, 10, 0.62) 42%,
+    #0a0a0a 100%
+  );
+}
+
+.hero .hero__seam-rule {
+  position: absolute;
+  bottom: clamp(1.15rem, 3.8vh, 2rem);
+  left: 50%;
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  transform: translateX(-50%);
+}
+
+.hero .hero__seam-wing {
+  display: block;
+  width: clamp(4.25rem, 28vw, 10.5rem);
+  height: 1.5px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(248, 242, 228, 0.55) 100%
+  );
+}
+
+.hero .hero__seam-wing--right {
+  background: linear-gradient(
+    270deg,
+    transparent 0%,
+    rgba(248, 242, 228, 0.55) 100%
+  );
+}
+
+.hero .hero__seam-mark {
+  display: block;
+  flex-shrink: 0;
+  width: 9px;
+  height: 9px;
+  border: 1.5px solid var(--orange-bright);
+  transform: rotate(45deg);
+  box-shadow:
+    0 0 18px rgba(255, 192, 64, 0.55),
+    0 0 6px rgba(255, 192, 64, 0.35);
+}
+
+[data-theme='light'] .hero .hero__seam-fade {
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(255, 255, 255, 0.62) 42%,
+    #f7f7f7 100%
+  );
+}
+
+[data-theme='light'] .hero .hero__seam-wing {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(17, 17, 17, 0.34) 100%
+  );
+}
+
+[data-theme='light'] .hero .hero__seam-wing--right {
+  background: linear-gradient(
+    270deg,
+    transparent 0%,
+    rgba(17, 17, 17, 0.34) 100%
+  );
+}

@@ -1,3 +1,5 @@
+import './HeroBlocks.css'
+
 export function HeroBlocks() {
   return (
     <div className="hero__blocks" aria-hidden="true">

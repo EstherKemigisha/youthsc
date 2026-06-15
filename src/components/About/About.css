@@ -12,12 +12,12 @@
   pointer-events: none;
 }
 
-.hero.hero--editorial + .about {
+.hero + .about {
   margin-top: 0;
   padding-top: clamp(2.5rem, 6vh, 3.75rem);
 }
 
-.hero.hero--editorial + .about .about__seam-blend {
+.hero + .about .about__seam-blend {
   height: clamp(6rem, 14vh, 8.5rem);
   background: linear-gradient(
     to bottom,
@@ -29,7 +29,7 @@
   );
 }
 
-.hero.hero--editorial + .about .about__base-tint {
+.hero + .about .about__base-tint {
   background: linear-gradient(
     to bottom,
     #0a0a0a 0%,
@@ -40,7 +40,7 @@
   );
 }
 
-[data-theme='light'] .hero.hero--editorial + .about .about__seam-blend {
+[data-theme='light'] .hero + .about .about__seam-blend {
   background: linear-gradient(
     to bottom,
     #f7f7f7 0%,
@@ -51,13 +51,13 @@
   );
 }
 
-[data-theme='light'] .hero.hero--editorial + .about .about__base-tint {
+[data-theme='light'] .hero + .about .about__base-tint {
   background: linear-gradient(
     to bottom,
     #f7f7f7 0%,
     rgba(255, 255, 255, 0.98) 10%,
     rgba(255, 255, 255, 0.92) 28%,
-    var(--black) 52%,
+    var(--black) 58%,
     var(--black) 100%
   );
 }
