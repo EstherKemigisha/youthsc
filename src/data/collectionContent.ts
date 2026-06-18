@@ -7,7 +7,6 @@ export type CollectionProduct = {
   onSale?: boolean
   description: string
   image: string
-  reviewCount?: number
 }
 
 export const COLLECTION_CONTENT = {
@@ -36,49 +35,35 @@ export const COLLECTION_CONTENT = {
       description:
         'Fan jerseys like the ones on our Friday night stage — unisex sizes S–XXL.',
       image: '/events/collection-tees.png',
-      reviewCount: 28,
-    },
-    {
-      id: 'performance-wear',
-      name: 'Urban Performance Wear',
-      tagline: 'Built for the stage',
-      price: '$28',
-      description:
-        'Lightweight tops made for worship nights, dance, and hangout energy.',
-      image: '/events/collection-hoodies.png',
-      reviewCount: 22,
-    },
-    {
-      id: 'street-cargos',
-      name: 'Street-Ready Cargos',
-      tagline: 'Utility pockets · all-night comfort',
-      price: '$42',
-      description:
-        'Black cargo pants with a relaxed fit — move freely from stage to street.',
-      image: '/events/collection-wristbands.png',
-      reviewCount: 19,
     },
     {
       id: 'gameday-graphics',
-      name: 'Gameday Graphics',
-      tagline: 'Bold tees · statement fits',
+      name: 'Love Like Jesus Tee',
+      tagline: 'Heart graphic · orange & black',
       price: '$24',
       compareAtPrice: '$30',
       onSale: true,
       description:
-        'Graphic tees with circular logos and color pops — perfect for hangout nights.',
-      image: '/events/collection-devotionals.png',
-      reviewCount: 16,
+        'Bold back graphic with “Love Like Jesus” — rep faith on and off the pitch.',
+      image: '/events/collection-love-like-jesus.png',
     },
     {
-      id: 'fan-collection',
-      name: 'The Fan Collection',
-      tagline: 'Ethiopia · Uganda · club kits',
-      price: '$34',
+      id: 'street-cargos',
+      name: 'Youth Satisfied Tee',
+      tagline: 'Classic black · white wordmark',
+      price: '$42',
       description:
-        'National and club-inspired jerseys seen on our YSC stage — rep your squad.',
-      image: '/events/collection-bibles.png',
-      reviewCount: 21,
+        'The signature YSC tee — clean, confident, and made for everyday wear.',
+      image: '/events/collection-ysc-tee.png',
+    },
+    {
+      id: 'performance-wear',
+      name: 'Jesus Must Be Seen Tee',
+      tagline: 'Black & red · bold front graphic',
+      price: '$28',
+      description:
+        'Statement tees that put faith front and center — unisex fits in black and red.',
+      image: '/events/collection-jesus-must-be-seen.png',
     },
     {
       id: 'patterned-denim',
@@ -87,8 +72,7 @@ export const COLLECTION_CONTENT = {
       price: '$38',
       description:
         'Bleached and patterned denim with streetwear character — pairs with any jersey.',
-      image: '/events/collection-books.png',
-      reviewCount: 14,
+      image: '/events/collection-patterned-denim.png',
     },
     {
       id: 'championship-style',
@@ -98,7 +82,6 @@ export const COLLECTION_CONTENT = {
       description:
         'Snapbacks, fitted caps, and court-ready sneakers to complete the look.',
       image: '/events/collection-hoodies.png',
-      reviewCount: 17,
     },
   ] satisfies CollectionProduct[],
   orderNote:

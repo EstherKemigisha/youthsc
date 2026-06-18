@@ -30,19 +30,6 @@ const emptyOrderForm = (productId?: string): OrderForm => ({
   notes: '',
 })
 
-function StarRating({ count }: { count: number }) {
-  return (
-    <div className="shop-card__stars" aria-label={`${count} reviews`}>
-      {Array.from({ length: 5 }).map((_, i) => (
-        <span key={i} className="shop-card__star" aria-hidden="true">
-          ★
-        </span>
-      ))}
-      <span className="shop-card__review-count">{count} reviews</span>
-    </div>
-  )
-}
-
 function SplitWords({
   text,
   className,
@@ -74,7 +61,8 @@ export function YouthCollectionPage() {
   const [submitted, setSubmitted] = useState(false)
   const [form, setForm] = useState<OrderForm>(emptyOrderForm)
   const heroRef = useSectionScroll({ cssVar: '--collection-scroll' })
-  const { ref: shopRef, isInView: shopVisible } = useInView({ threshold: 0.08 })
+  const shopScrollRef = useSectionScroll({ cssVar: '--shop-scroll' })
+  const { ref: shopViewRef, isInView: shopVisible } = useInView({ threshold: 0.08 })
   const { ref: shippingRef, isInView: shippingVisible } = useInView({ threshold: 0.2 })
   const { ref: orderRef, isInView: orderVisible } = useInView({ threshold: 0.12 })
   const {
@@ -115,6 +103,11 @@ export function YouthCollectionPage() {
     setSubmitted(true)
   }
 
+  const setShopSectionRef = (element: HTMLElement | null) => {
+    shopScrollRef.current = element
+    shopViewRef.current = element
+  }
+
   return (
     <div className="collection-page">
       <PageHeader />
@@ -152,13 +145,13 @@ export function YouthCollectionPage() {
 
       <section
         id="collection-shop"
-        ref={shopRef}
+        ref={setShopSectionRef}
         className={`collection-shop${shopVisible ? ' collection-shop--visible' : ''}`}
         aria-labelledby="collection-shop-title"
       >
         <div className="collection-shop__head">
           <h2 id="collection-shop-title" className="collection-shop__title">
-            Shop the collection
+            <SplitWords text="Shop the collection" className="collection-shop__word" />
           </h2>
           <p className="collection-shop__count">{products.length} items</p>
         </div>
@@ -176,9 +169,6 @@ export function YouthCollectionPage() {
                   onClick={() => openOrder(product.id)}
                   aria-label={`View ${product.name}`}
                 >
-                  {product.onSale && (
-                    <span className="shop-card__badge">Sale</span>
-                  )}
                   <img
                     className="shop-card__image"
                     src={product.image}
@@ -191,9 +181,6 @@ export function YouthCollectionPage() {
                 <div className="shop-card__body">
                   <h3 className="shop-card__name">{product.name}</h3>
                   <p className="shop-card__brand">{brandLine}</p>
-                  {product.reviewCount != null && product.reviewCount > 0 && (
-                    <StarRating count={product.reviewCount} />
-                  )}
                   <div className="shop-card__pricing">
                     {product.onSale && product.compareAtPrice && (
                       <span className="shop-card__compare">{product.compareAtPrice}</span>

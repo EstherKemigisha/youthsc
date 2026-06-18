@@ -130,14 +130,20 @@
   display: inline-block;
   margin-right: 0.28em;
   transform: translateY(calc(var(--collection-scroll) * (10px + var(--word-i, 0) * 6px)))
-    translateX(calc(var(--collection-scroll) * var(--word-dir, 1) * 4px));
+    translateX(calc(var(--collection-scroll) * var(--word-dir, 1) * 4px))
+    rotate(calc(var(--collection-scroll) * var(--word-dir, 1) * -1.5deg));
   opacity: calc(1 - var(--collection-scroll) * (0.12 + var(--word-i, 0) * 0.025));
-  transition: opacity 0.15s ease;
+  filter: blur(calc(var(--collection-scroll) * 2px));
+  transition:
+    opacity 0.2s ease,
+    filter 0.25s ease;
 }
 
 .collection-hero__word--intro {
-  transform: translateY(calc(var(--collection-scroll) * (6px + var(--word-i, 0) * 2px)));
+  transform: translateY(calc(var(--collection-scroll) * (6px + var(--word-i, 0) * 2px)))
+    translateX(calc(var(--collection-scroll) * var(--word-dir, 1) * 2px));
   opacity: calc(1 - var(--collection-scroll) * 0.35);
+  filter: blur(calc(var(--collection-scroll) * 1.5px));
 }
 
 .collection-hero__eyebrow {
@@ -214,8 +220,10 @@
   color: #0a0a0a;
 }
 
-/* Shop grid — Born Again inspired */
+/* Shop grid — 3 per row, card width matches former 4-column layout */
 .collection-shop {
+  --shop-scroll: 0;
+  --shop-grid-max: 960px;
   padding: clamp(2.5rem, 6vh, 3.5rem) clamp(1rem, 3vw, 2rem)
     clamp(2rem, 5vh, 2.5rem);
   background: var(--shop-surface);
@@ -227,7 +235,7 @@
   align-items: baseline;
   justify-content: space-between;
   gap: 1rem;
-  max-width: min(1280px, 100%);
+  max-width: min(var(--shop-grid-max), 100%);
   margin: 0 auto 1.5rem;
   padding: 0 0.25rem;
   transform: translateY(28px);
@@ -260,7 +268,32 @@
   font-weight: 800;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--shop-ink);
+  color: var(--orange-bright);
+}
+
+.collection-shop__word {
+  display: inline-block;
+  margin-right: 0.32em;
+  color: var(--orange-bright);
+  opacity: 0;
+  filter: blur(6px);
+  transform: translateY(1.25em) rotate(3deg);
+  transition:
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1) calc(var(--word-i, 0) * 0.1s),
+    opacity 0.7s ease calc(var(--word-i, 0) * 0.1s),
+    filter 0.8s ease calc(var(--word-i, 0) * 0.1s),
+    letter-spacing 0.6s ease calc(var(--word-i, 0) * 0.08s);
+  letter-spacing: 0.2em;
+}
+
+.collection-shop--visible .collection-shop__word {
+  opacity: 1;
+  filter: blur(0);
+  letter-spacing: 0.14em;
+  transform:
+    translateY(calc(var(--shop-scroll) * (10px + var(--word-i, 0) * 5px)))
+    translateX(calc(var(--shop-scroll) * var(--word-dir, 1) * 5px))
+    rotate(calc(var(--shop-scroll) * var(--word-dir, 1) * -2deg));
 }
 
 .collection-shop__count {
@@ -268,14 +301,24 @@
   font-weight: 600;
   letter-spacing: 0.06em;
   color: var(--shop-muted);
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.35s,
+    opacity 0.6s ease 0.35s;
+}
+
+.collection-shop--visible .collection-shop__count {
+  opacity: 1;
+  transform: translateY(calc(var(--shop-scroll) * -6px));
 }
 
 .collection-shop__grid {
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(0.65rem, 1.5vw, 1rem);
-  max-width: min(1280px, 100%);
+  max-width: min(var(--shop-grid-max), 100%);
   margin: 0 auto;
 }
 
@@ -317,20 +360,6 @@
 
 .shop-card:hover .shop-card__image {
   transform: scale(1.04);
-}
-
-.shop-card__badge {
-  position: absolute;
-  top: 0.65rem;
-  left: 0.65rem;
-  z-index: 1;
-  padding: 0.25rem 0.45rem;
-  font-size: 0.58rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #ffffff;
-  background: #c0392b;
 }
 
 .shop-card__body {
@@ -813,12 +842,6 @@
   color: var(--heading);
 }
 
-@media (max-width: 1024px) {
-  .collection-shop__grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-
 @media (max-width: 768px) {
   .collection-hero__content {
     margin-top: clamp(-2rem, -5.5vh, -1rem);
@@ -869,6 +892,12 @@
   }
 
   .collection-shop__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .collection-shop__grid {
     grid-template-columns: 1fr;
   }
 }
@@ -902,6 +931,8 @@
   .collection-hero__word,
   .collection-hero__year,
   .collection-shop__head,
+  .collection-shop__word,
+  .collection-shop__count,
   .collection-shop__grid > li,
   .collection-shipping,
   .collection-order__inner,
@@ -910,7 +941,9 @@
   .collection-order__submit {
     transform: none;
     opacity: 1;
+    filter: none;
     transition: none;
     will-change: auto;
+    letter-spacing: inherit;
   }
 }
