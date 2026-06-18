@@ -119,7 +119,6 @@ export function YouthCollectionPage() {
       >
         <div
           className="collection-hero__media"
-          style={{ backgroundImage: "url('/events/youth-collection-hero.png')" }}
           aria-hidden="true"
         />
         <div className="collection-hero__overlay" aria-hidden="true" />

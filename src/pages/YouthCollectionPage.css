@@ -68,11 +68,48 @@
 .collection-hero__media {
   position: absolute;
   inset: 0;
+  background-image: url('/events/youth-collection-hero-desktop.png');
   background-size: cover;
-  background-position: 50% 18%;
-  filter: grayscale(0.08) contrast(1.06) saturate(1.02);
-  transform: scale(calc(1.06 + var(--collection-scroll) * 0.08));
+  background-position: 34% 22%;
+  filter: grayscale(0.12) contrast(1.06) saturate(0.96);
+  transform: scale(calc(1.03 + var(--collection-scroll) * 0.08));
   will-change: transform;
+}
+
+@media (min-width: 769px) {
+  .collection-hero__media {
+    filter: grayscale(0.08) contrast(1.04) saturate(1.02) brightness(1.04);
+  }
+
+  .collection-hero__overlay {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.18) 0%,
+        rgba(0, 0, 0, 0.42) 48%,
+        rgba(0, 0, 0, 0.72) 100%
+      ),
+      radial-gradient(
+        ellipse 60% 40% at 50% 30%,
+        rgba(245, 166, 35, 0.12) 0%,
+        transparent 70%
+      );
+  }
+
+  [data-theme='light'] .collection-hero__overlay {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.2) 0%,
+        rgba(0, 0, 0, 0.44) 48%,
+        rgba(0, 0, 0, 0.74) 100%
+      ),
+      radial-gradient(
+        ellipse 60% 40% at 50% 30%,
+        rgba(245, 166, 35, 0.1) 0%,
+        transparent 70%
+      );
+  }
 }
 
 .collection-hero__overlay {
@@ -843,6 +880,13 @@
 }
 
 @media (max-width: 768px) {
+  .collection-hero__media {
+    background-image: url('/events/youth-collection-hero-mobile.png');
+    background-position: 50% 18%;
+    filter: grayscale(0.08) contrast(1.06) saturate(1.02);
+    transform: scale(calc(1.06 + var(--collection-scroll) * 0.08));
+  }
+
   .collection-hero__content {
     margin-top: clamp(-2rem, -5.5vh, -1rem);
     padding-bottom: clamp(1.35rem, 4.5vh, 2rem);
