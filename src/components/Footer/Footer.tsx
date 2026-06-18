@@ -4,6 +4,10 @@ import { HERO_CONTENT } from '../../data/heroContent'
 import { SocialIcon } from '../Hero/SocialIcon'
 import './Footer.css'
 
+function isInternalRoute(href: string) {
+  return href.startsWith('/') && !href.startsWith('//')
+}
+
 export function Footer() {
   const { brand, shortName, tagline, navLinks, contact } = FOOTER_CONTENT
   const year = new Date().getFullYear()
@@ -23,7 +27,7 @@ export function Footer() {
           <ul className="site-footer__nav-list">
             {navLinks.map((link) => (
               <li key={link.label}>
-                {link.href === '/' || link.href === '/register' ? (
+                {isInternalRoute(link.href) ? (
                   <Link to={link.href} className="site-footer__link">
                     {link.label}
                   </Link>

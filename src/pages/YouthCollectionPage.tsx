@@ -1,7 +1,9 @@
-import { useEffect, useState, type FormEvent } from 'react'
+import { useEffect, useState, type CSSProperties, type FormEvent } from 'react'
 import { Link } from 'react-router-dom'
 import { PageHeader } from '../components/PageHeader/PageHeader'
 import { COLLECTION_CONTENT } from '../data/collectionContent'
+import { useInView } from '../hooks/useInView'
+import { useSectionScroll } from '../hooks/useSectionScroll'
 import './YouthCollectionPage.css'
 
 type OrderForm = {
@@ -41,9 +43,40 @@ function StarRating({ count }: { count: number }) {
   )
 }
 
+function SplitWords({
+  text,
+  className,
+}: {
+  text: string
+  className?: string
+}) {
+  return (
+    <>
+      {text.split(' ').map((word, index) => (
+        <span
+          key={`${word}-${index}`}
+          className={className}
+          style={
+            {
+              '--word-i': index,
+              '--word-dir': index % 2 === 0 ? -1 : 1,
+            } as CSSProperties
+          }
+        >
+          {word}
+        </span>
+      ))}
+    </>
+  )
+}
+
 export function YouthCollectionPage() {
   const [submitted, setSubmitted] = useState(false)
   const [form, setForm] = useState<OrderForm>(emptyOrderForm)
+  const heroRef = useSectionScroll({ cssVar: '--collection-scroll' })
+  const { ref: shopRef, isInView: shopVisible } = useInView({ threshold: 0.08 })
+  const { ref: shippingRef, isInView: shippingVisible } = useInView({ threshold: 0.2 })
+  const { ref: orderRef, isInView: orderVisible } = useInView({ threshold: 0.12 })
   const {
     brandLine,
     heroSeason,
@@ -86,7 +119,11 @@ export function YouthCollectionPage() {
     <div className="collection-page">
       <PageHeader />
 
-      <section className="collection-hero" aria-labelledby="collection-hero-title">
+      <section
+        ref={heroRef}
+        className="collection-hero"
+        aria-labelledby="collection-hero-title"
+      >
         <div
           className="collection-hero__media"
           style={{ backgroundImage: "url('/events/youth-collection-hero.png')" }}
@@ -95,12 +132,18 @@ export function YouthCollectionPage() {
         <div className="collection-hero__overlay" aria-hidden="true" />
 
         <div className="collection-hero__content">
-          <p className="collection-hero__eyebrow">{brandLine}</p>
+          <p className="collection-hero__eyebrow">
+            <SplitWords text={brandLine} className="collection-hero__word" />
+          </p>
           <h1 id="collection-hero-title" className="collection-hero__title">
-            {heroSeason}
-            <span>{heroYear}</span>
+            <span className="collection-hero__title-line">
+              <SplitWords text={heroSeason} className="collection-hero__word" />
+            </span>
+            <span className="collection-hero__year">{heroYear}</span>
           </h1>
-          <p className="collection-hero__intro">{intro}</p>
+          <p className="collection-hero__intro">
+            <SplitWords text={intro} className="collection-hero__word collection-hero__word--intro" />
+          </p>
           <button type="button" className="collection-hero__shop" onClick={scrollToShop}>
             Shop
           </button>
@@ -109,7 +152,8 @@ export function YouthCollectionPage() {
 
       <section
         id="collection-shop"
-        className="collection-shop"
+        ref={shopRef}
+        className={`collection-shop${shopVisible ? ' collection-shop--visible' : ''}`}
         aria-labelledby="collection-shop-title"
       >
         <div className="collection-shop__head">
@@ -120,8 +164,11 @@ export function YouthCollectionPage() {
         </div>
 
         <ul className="collection-shop__grid">
-          {products.map((product) => (
-            <li key={product.id}>
+          {products.map((product, index) => (
+            <li
+              key={product.id}
+              style={{ '--card-i': index } as CSSProperties}
+            >
               <article className="shop-card">
                 <button
                   type="button"
@@ -168,7 +215,11 @@ export function YouthCollectionPage() {
         </ul>
       </section>
 
-      <section className="collection-shipping" aria-label={fulfillment.title}>
+      <section
+        ref={shippingRef}
+        className={`collection-shipping${shippingVisible ? ' collection-shipping--visible' : ''}`}
+        aria-label={fulfillment.title}
+      >
         <h2 className="collection-shipping__title">{fulfillment.title}</h2>
         <ul className="collection-shipping__list">
           {fulfillment.options.map((option) => (
@@ -179,7 +230,8 @@ export function YouthCollectionPage() {
 
       <section
         id="collection-order"
-        className="collection-order"
+        ref={orderRef}
+        className={`collection-order${orderVisible ? ' collection-order--visible' : ''}`}
         aria-labelledby="collection-order-title"
       >
         <div className="collection-order__inner">

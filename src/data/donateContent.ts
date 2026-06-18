@@ -69,4 +69,10 @@ export const DONATE_CONTENT = {
   ] satisfies DonationOption[],
   ctaNote:
     'Complete the form below and our team will contact you with payment details (mobile money or in-person).',
+  thankYouNote: {
+    title: 'Thank you for your heart to give',
+    body:
+      'Every gift — large or small — helps us reach more young people with the gospel, discipleship, and a community rooted in Christ. We are deeply grateful you chose to partner with Youth Satisfied in Christ.',
+    signoff: 'With love, the YSC family',
+  },
 } as const

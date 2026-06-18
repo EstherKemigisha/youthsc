@@ -55,6 +55,7 @@
 
 /* Hero — Fear of God inspired */
 .collection-hero {
+  --collection-scroll: 0;
   position: relative;
   display: flex;
   align-items: flex-end;
@@ -68,9 +69,10 @@
   position: absolute;
   inset: 0;
   background-size: cover;
-  background-position: 34% 26%;
-  filter: grayscale(0.2) contrast(1.08) saturate(0.92);
-  transform: scale(1.03);
+  background-position: 50% 18%;
+  filter: grayscale(0.08) contrast(1.06) saturate(1.02);
+  transform: scale(calc(1.06 + var(--collection-scroll) * 0.08));
+  will-change: transform;
 }
 
 .collection-hero__overlay {
@@ -119,6 +121,23 @@
   align-items: flex-end;
   text-align: right;
   gap: 0.45rem;
+  transform: translateY(calc(var(--collection-scroll) * -28px));
+  opacity: calc(1 - var(--collection-scroll) * 0.15);
+  will-change: transform, opacity;
+}
+
+.collection-hero__word {
+  display: inline-block;
+  margin-right: 0.28em;
+  transform: translateY(calc(var(--collection-scroll) * (10px + var(--word-i, 0) * 6px)))
+    translateX(calc(var(--collection-scroll) * var(--word-dir, 1) * 4px));
+  opacity: calc(1 - var(--collection-scroll) * (0.12 + var(--word-i, 0) * 0.025));
+  transition: opacity 0.15s ease;
+}
+
+.collection-hero__word--intro {
+  transform: translateY(calc(var(--collection-scroll) * (6px + var(--word-i, 0) * 2px)));
+  opacity: calc(1 - var(--collection-scroll) * 0.35);
 }
 
 .collection-hero__eyebrow {
@@ -140,7 +159,11 @@
   font-family: Georgia, 'Times New Roman', serif;
 }
 
-.collection-hero__title span {
+.collection-hero__title-line {
+  display: block;
+}
+
+.collection-hero__year {
   display: block;
   font-size: 0.55em;
   font-style: normal;
@@ -149,6 +172,8 @@
   text-transform: uppercase;
   font-family: var(--font);
   margin-top: 0.35em;
+  transform: translateY(calc(var(--collection-scroll) * 18px));
+  opacity: calc(1 - var(--collection-scroll) * 0.5);
 }
 
 .collection-hero__intro {
@@ -205,6 +230,29 @@
   max-width: min(1280px, 100%);
   margin: 0 auto 1.5rem;
   padding: 0 0.25rem;
+  transform: translateY(28px);
+  opacity: 0;
+  transition:
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.7s ease;
+}
+
+.collection-shop--visible .collection-shop__head {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.collection-shop__grid > li {
+  transform: translateY(32px) scale(0.97);
+  opacity: 0;
+  transition:
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) calc(0.08s + var(--card-i, 0) * 0.07s),
+    opacity 0.65s ease calc(0.06s + var(--card-i, 0) * 0.07s);
+}
+
+.collection-shop--visible .collection-shop__grid > li {
+  transform: translateY(0) scale(1);
+  opacity: 1;
 }
 
 .collection-shop__title {
@@ -393,6 +441,16 @@
   padding: 1.25rem clamp(1rem, 3vw, 2rem);
   border-top: 1px solid var(--border);
   background: var(--bg);
+  transform: translateY(20px);
+  opacity: 0;
+  transition:
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.1s,
+    opacity 0.65s ease 0.1s;
+}
+
+.collection-shipping--visible {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 .collection-shipping__title {
@@ -438,6 +496,16 @@
 .collection-order__inner {
   max-width: min(640px, 100%);
   margin: 0 auto;
+  transform: translateY(28px);
+  opacity: 0;
+  transition:
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.08s,
+    opacity 0.75s ease 0.08s;
+}
+
+.collection-order--visible .collection-order__inner {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 .collection-order__head {
@@ -829,9 +897,20 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .collection-hero__media,
+  .collection-hero__content,
+  .collection-hero__word,
+  .collection-hero__year,
+  .collection-shop__head,
+  .collection-shop__grid > li,
+  .collection-shipping,
+  .collection-order__inner,
   .shop-card__image,
   .collection-hero__shop,
   .collection-order__submit {
+    transform: none;
+    opacity: 1;
     transition: none;
+    will-change: auto;
   }
 }

@@ -36,6 +36,7 @@ export function DonatePage() {
     whatToGive,
     options,
     ctaNote,
+    thankYouNote,
   } = DONATE_CONTENT
 
   useEffect(() => {
@@ -242,6 +243,12 @@ export function DonatePage() {
               </button>
             </form>
           )}
+
+          <aside className="donate-form-section__thanks" aria-label="Thank you">
+            <p className="donate-form-section__thanks-eyebrow">{thankYouNote.title}</p>
+            <p className="donate-form-section__thanks-body">{thankYouNote.body}</p>
+            <p className="donate-form-section__thanks-signoff">{thankYouNote.signoff}</p>
+          </aside>
         </div>
       </section>
     </div>
