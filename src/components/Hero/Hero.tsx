@@ -6,8 +6,10 @@ import { Header } from './Header'
 import { HeroBackground } from './HeroBackground'
 import { HeadlineLine } from './HeadlineLine'
 import { SocialLinks } from './SocialLinks'
+import { useHeroScroll } from './useHeroScroll'
 import { VideoSyncedWords } from './VideoSyncedWords'
 import './Hero.css'
+import './HeroScroll.css'
 
 export function Hero() {
   const {
@@ -23,9 +25,10 @@ export function Hero() {
   } = HERO_CONTENT
 
   const mobileHeadline = headlineSequences[0]
+  const heroRef = useHeroScroll()
 
   return (
-    <section id="home" className="hero" aria-label="Hero">
+    <section id="home" ref={heroRef} className="hero" aria-label="Hero">
       <HeroBlocks />
       <HeroBackground />
       <div className="hero__overlay" role="presentation" />

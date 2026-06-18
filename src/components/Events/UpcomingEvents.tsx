@@ -58,8 +58,6 @@ export function UpcomingEvents() {
                   loading="lazy"
                   decoding="async"
                 />
-                <div className="events__card-shine" aria-hidden="true" />
-                <div className="events__card-overlay" aria-hidden="true" />
                 <div className="events__card-badge">
                   <time className="events__date">{event.date}</time>
                   <span className="events__time">{event.time}</span>

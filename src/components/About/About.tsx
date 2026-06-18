@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react'
 import { ABOUT_CONTENT } from '../../data/aboutContent'
 import { useInView } from '../../hooks/useInView'
 import './About.css'
@@ -37,7 +38,9 @@ export function About() {
             </h2>
             <ul className="about__copy">
               {paragraphs.map((paragraph, index) => (
-                <li key={index}>{paragraph}</li>
+                <li key={index} style={{ '--about-i': index } as CSSProperties}>
+                  {paragraph}
+                </li>
               ))}
             </ul>
           </div>

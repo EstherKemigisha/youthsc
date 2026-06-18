@@ -96,6 +96,16 @@
   display: flex;
   justify-content: center;
   margin-bottom: clamp(1rem, 2.5vh, 1.5rem);
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.7s ease 0.02s,
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.02s;
+}
+
+.events--visible .events__seam {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .events__seam-line {
@@ -298,38 +308,6 @@
   transform: scale(1.08);
 }
 
-.events__card-shine {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    105deg,
-    transparent 0%,
-    rgba(255, 220, 140, 0.15) 45%,
-    transparent 55%
-  );
-  transform: translateX(-120%);
-  transition: transform 0.75s ease;
-  pointer-events: none;
-  z-index: 2;
-}
-
-.events__card:hover .events__card-shine {
-  transform: translateX(120%);
-}
-
-.events__card-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: linear-gradient(
-    to top,
-    rgba(10, 10, 10, 0.95) 0%,
-    rgba(10, 10, 10, 0.4) 45%,
-    rgba(245, 166, 35, 0.08) 100%
-  );
-  pointer-events: none;
-}
-
 .events__card-badge {
   position: absolute;
   top: 0.9rem;
@@ -507,14 +485,11 @@
   }
 
   .events__header,
-  .events__card {
+  .events__card,
+  .events__seam {
     opacity: 1;
     transform: none;
     transition: none;
-  }
-
-  .events__card-shine {
-    display: none;
   }
 
   .events__card:hover .events__card-image {

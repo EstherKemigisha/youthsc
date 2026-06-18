@@ -1,0 +1,31 @@
+/* Scroll-driven hero fade — ties landing to About overlap */
+.hero {
+  --hero-scroll: 0;
+}
+
+.hero .hero__blocks {
+  transform: translateY(calc(var(--hero-scroll) * -24px));
+  opacity: calc(1 - var(--hero-scroll) * 0.35);
+  will-change: transform, opacity;
+}
+
+.hero .hero__mobile-ui {
+  transform: translateY(calc(var(--hero-scroll) * -32px));
+  opacity: calc(1 - var(--hero-scroll) * 0.92);
+  will-change: transform, opacity;
+}
+
+.hero .header.site-header-bar:not(.header--scrolled) {
+  opacity: calc(1 - var(--hero-scroll) * 0.65);
+  transform: translateY(calc(var(--hero-scroll) * -10px));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero .hero__blocks,
+  .hero .hero__mobile-ui,
+  .hero .header.site-header-bar:not(.header--scrolled) {
+    transform: none;
+    opacity: 1;
+    will-change: auto;
+  }
+}
