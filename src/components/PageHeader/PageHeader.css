@@ -43,6 +43,21 @@
   opacity: 0.92;
 }
 
+/* Light mode — dark Y/S on transparent logo reads on white bar */
+.page-header__logo--light .site-logo-img {
+  width: clamp(4.5rem, 22vw, 6rem);
+  max-height: clamp(4.5rem, 22vw, 6rem);
+  filter: contrast(1.12) saturate(1.08);
+}
+
+[data-theme='light'] .page-header__center-brand .header__center-brand-title {
+  color: #0a0a0a;
+}
+
+[data-theme='light'] .page-header__center-brand .header__center-brand-subtitle {
+  color: var(--orange-deep);
+}
+
 @media (max-width: 768px) {
   .page-header__logo {
     margin-left: -0.35rem;
@@ -50,5 +65,22 @@
 
   .page-header__back {
     font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .page-header__center-brand {
+    display: none;
+  }
+
+  .page-header__logo--light .site-logo-img,
+  .page-header__logo .site-logo-img {
+    width: clamp(3.75rem, 18vw, 4.5rem);
+    max-height: clamp(3.75rem, 18vw, 4.5rem);
+  }
+
+  .site-header-bar__inner.page-header__inner {
+    padding-left: max(0.65rem, env(safe-area-inset-left, 0px));
+    padding-right: max(0.65rem, env(safe-area-inset-right, 0px));
   }
 }

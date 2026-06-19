@@ -73,19 +73,11 @@
 
 .hero--gradient .hero__bg-img {
   object-fit: cover;
-  object-position: 50% 38%;
+  object-position: 50% 32%;
   transform: scale(1.05) translateY(calc(var(--hero-scroll) * 36px));
   transform-origin: center center;
   opacity: 1;
   will-change: transform;
-}
-
-.hero--gradient .hero__blocks-base {
-  opacity: 0.18;
-}
-
-.hero--gradient .hero__block {
-  opacity: 0.5;
 }
 
 .hero--gradient .hero__overlay {
@@ -204,7 +196,7 @@
 
 @media (max-width: 768px) {
   .hero--gradient .hero__bg-img {
-    object-position: 50% 34%;
+    object-position: 50% 26%;
     transform: scale(1.05) translateY(calc(var(--hero-scroll) * 36px));
   }
 

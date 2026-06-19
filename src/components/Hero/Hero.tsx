@@ -28,7 +28,7 @@ export function Hero() {
   const heroRef = useHeroScroll()
 
   return (
-    <section id="home" ref={heroRef} className="hero hero--gradient" aria-label="Hero">
+    <section id="home" ref={heroRef} className="hero" aria-label="Hero">
       <HeroBlocks />
       <HeroBackground />
       <div className="hero__overlay" role="presentation" />

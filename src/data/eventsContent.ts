@@ -38,7 +38,7 @@ export const EVENTS_CONTENT = {
         'Games, worship, and good vibes. Bring a friend and come as you are.',
       image: '/events/friday-hangout.png',
       imageAlt:
-        'Young people performing on stage at a Friday night hangout — jerseys, worship, and high energy',
+        'YSC youth in Real Madrid jerseys laughing together at a hangout',
     },
     {
       id: 'city-outreach',

@@ -1,6 +1,8 @@
-import { useEffect, useState, type CSSProperties, type FormEvent } from 'react'
+import { useEffect, useState, type FormEvent } from 'react'
 import { Link } from 'react-router-dom'
+import { CollectionShopCard } from '../components/Collection/CollectionShopCard'
 import { PageHeader } from '../components/PageHeader/PageHeader'
+import { FadeIn, ListReveal, RevealLine, RevealLines } from '../components/ScrollReveal/ScrollReveal'
 import { COLLECTION_CONTENT } from '../data/collectionContent'
 import { useInView } from '../hooks/useInView'
 import { useSectionScroll } from '../hooks/useSectionScroll'
@@ -30,39 +32,17 @@ const emptyOrderForm = (productId?: string): OrderForm => ({
   notes: '',
 })
 
-function SplitWords({
-  text,
-  className,
-}: {
-  text: string
-  className?: string
-}) {
-  return (
-    <>
-      {text.split(' ').map((word, index) => (
-        <span
-          key={`${word}-${index}`}
-          className={className}
-          style={
-            {
-              '--word-i': index,
-              '--word-dir': index % 2 === 0 ? -1 : 1,
-            } as CSSProperties
-          }
-        >
-          {word}
-        </span>
-      ))}
-    </>
-  )
+function splitIntoLines(text: string) {
+  return text
+    .split(/(?<=[.!?])\s+/)
+    .map((line) => line.trim())
+    .filter(Boolean)
 }
 
 export function YouthCollectionPage() {
   const [submitted, setSubmitted] = useState(false)
   const [form, setForm] = useState<OrderForm>(emptyOrderForm)
   const heroRef = useSectionScroll({ cssVar: '--collection-scroll' })
-  const shopScrollRef = useSectionScroll({ cssVar: '--shop-scroll' })
-  const { ref: shopViewRef, isInView: shopVisible } = useInView({ threshold: 0.08 })
   const { ref: shippingRef, isInView: shippingVisible } = useInView({ threshold: 0.2 })
   const { ref: orderRef, isInView: orderVisible } = useInView({ threshold: 0.12 })
   const {
@@ -74,6 +54,8 @@ export function YouthCollectionPage() {
     products,
     orderNote,
   } = COLLECTION_CONTENT
+
+  const introLines = splitIntoLines(intro)
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -103,11 +85,6 @@ export function YouthCollectionPage() {
     setSubmitted(true)
   }
 
-  const setShopSectionRef = (element: HTMLElement | null) => {
-    shopScrollRef.current = element
-    shopViewRef.current = element
-  }
-
   return (
     <div className="collection-page">
       <PageHeader />
@@ -117,86 +94,63 @@ export function YouthCollectionPage() {
         className="collection-hero"
         aria-labelledby="collection-hero-title"
       >
-        <div
-          className="collection-hero__media"
-          aria-hidden="true"
-        />
+        <div className="collection-hero__media" aria-hidden="true" />
         <div className="collection-hero__overlay" aria-hidden="true" />
 
         <div className="collection-hero__content">
-          <p className="collection-hero__eyebrow">
-            <SplitWords text={brandLine} className="collection-hero__word" />
-          </p>
+          <FadeIn className="collection-hero__eyebrow" delay={0.05}>
+            {brandLine}
+          </FadeIn>
+
           <h1 id="collection-hero-title" className="collection-hero__title">
-            <span className="collection-hero__title-line">
-              <SplitWords text={heroSeason} className="collection-hero__word" />
-            </span>
-            <span className="collection-hero__year">{heroYear}</span>
+            <RevealLine index={0} className="collection-hero__title-line">
+              {heroSeason}
+            </RevealLine>
+            <FadeIn className="collection-hero__year" delay={0.2} as="span">
+              {heroYear}
+            </FadeIn>
           </h1>
-          <p className="collection-hero__intro">
-            <SplitWords text={intro} className="collection-hero__word collection-hero__word--intro" />
-          </p>
-          <button type="button" className="collection-hero__shop" onClick={scrollToShop}>
-            Shop
-          </button>
+
+          <RevealLines
+            lines={introLines}
+            className="collection-hero__intro"
+            lineClassName="collection-hero__intro-line"
+            baseDelay={0.15}
+          />
+
+          <FadeIn delay={0.35}>
+            <button type="button" className="collection-hero__shop" onClick={scrollToShop}>
+              Shop
+            </button>
+          </FadeIn>
         </div>
       </section>
 
       <section
         id="collection-shop"
-        ref={setShopSectionRef}
-        className={`collection-shop${shopVisible ? ' collection-shop--visible' : ''}`}
+        className="collection-shop"
         aria-labelledby="collection-shop-title"
       >
         <div className="collection-shop__head">
-          <h2 id="collection-shop-title" className="collection-shop__title">
-            <SplitWords text="Shop the collection" className="collection-shop__word" />
-          </h2>
-          <p className="collection-shop__count">{products.length} items</p>
+          <FadeIn delay={0.05}>
+            <h2 id="collection-shop-title" className="collection-shop__title">
+              Shop the collection
+            </h2>
+          </FadeIn>
+          <FadeIn className="collection-shop__count" delay={0.18}>
+            {products.length} items
+          </FadeIn>
         </div>
 
         <ul className="collection-shop__grid">
           {products.map((product, index) => (
-            <li
-              key={product.id}
-              style={{ '--card-i': index } as CSSProperties}
-            >
-              <article className="shop-card">
-                <button
-                  type="button"
-                  className="shop-card__image-wrap"
-                  onClick={() => openOrder(product.id)}
-                  aria-label={`View ${product.name}`}
-                >
-                  <img
-                    className="shop-card__image"
-                    src={product.image}
-                    alt={product.name}
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </button>
-
-                <div className="shop-card__body">
-                  <h3 className="shop-card__name">{product.name}</h3>
-                  <p className="shop-card__brand">{brandLine}</p>
-                  <div className="shop-card__pricing">
-                    {product.onSale && product.compareAtPrice && (
-                      <span className="shop-card__compare">{product.compareAtPrice}</span>
-                    )}
-                    <span className="shop-card__price">{product.price}</span>
-                  </div>
-                  <p className="shop-card__desc">{product.description}</p>
-                  <button
-                    type="button"
-                    className="shop-card__cta"
-                    onClick={() => openOrder(product.id)}
-                  >
-                    Add to order
-                  </button>
-                </div>
-              </article>
-            </li>
+            <ListReveal key={product.id} index={index}>
+              <CollectionShopCard
+                product={product}
+                brandLine={brandLine}
+                onOrder={openOrder}
+              />
+            </ListReveal>
           ))}
         </ul>
       </section>
@@ -206,10 +160,14 @@ export function YouthCollectionPage() {
         className={`collection-shipping${shippingVisible ? ' collection-shipping--visible' : ''}`}
         aria-label={fulfillment.title}
       >
-        <h2 className="collection-shipping__title">{fulfillment.title}</h2>
+        <FadeIn>
+          <h2 className="collection-shipping__title">{fulfillment.title}</h2>
+        </FadeIn>
         <ul className="collection-shipping__list">
-          {fulfillment.options.map((option) => (
-            <li key={option}>{option}</li>
+          {fulfillment.options.map((option, index) => (
+            <li key={option}>
+              <RevealLine index={index}>{option}</RevealLine>
+            </li>
           ))}
         </ul>
       </section>
@@ -236,11 +194,19 @@ export function YouthCollectionPage() {
           ) : (
             <>
               <header className="collection-order__head">
-                <p className="collection-order__eyebrow">Checkout request</p>
-                <h2 id="collection-order-title" className="collection-order__title">
-                  Place your order
-                </h2>
-                <p className="collection-order__note">{orderNote}</p>
+                <FadeIn>
+                  <p className="collection-order__eyebrow">Checkout request</p>
+                </FadeIn>
+                <FadeIn delay={0.12}>
+                  <h2 id="collection-order-title" className="collection-order__title">
+                    Place your order
+                  </h2>
+                </FadeIn>
+                <RevealLines
+                  lines={splitIntoLines(orderNote)}
+                  className="collection-order__note"
+                  baseDelay={0.2}
+                />
               </header>
 
               <form

@@ -1,0 +1,65 @@
+/* Masked line reveal — bottom to top */
+.reveal-line {
+  overflow: hidden;
+  display: block;
+}
+
+.reveal-line__inner {
+  display: block;
+  transform: translateY(110%);
+  opacity: 0;
+  transition:
+    transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.65s ease;
+  transition-delay: calc(var(--reveal-i, 0) * 0.08s + var(--reveal-delay, 0s));
+  will-change: transform, opacity;
+}
+
+.reveal-line--visible .reveal-line__inner {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Opacity fade-in block */
+.fade-in {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 0.9s ease var(--fade-delay, 0s),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1) var(--fade-delay, 0s);
+}
+
+.fade-in--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Mario Roudil–style list item clip reveal */
+.list-reveal {
+  overflow: hidden;
+}
+
+.list-reveal__inner {
+  transform: translateY(105%);
+  opacity: 0;
+  transition:
+    transform 1s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.75s ease;
+  transition-delay: calc(var(--list-i, 0) * 0.09s);
+  will-change: transform, opacity;
+}
+
+.list-reveal--visible .list-reveal__inner {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-line__inner,
+  .fade-in,
+  .list-reveal__inner {
+    transform: none;
+    opacity: 1;
+    transition: none;
+  }
+}
