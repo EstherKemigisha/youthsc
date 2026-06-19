@@ -1,7 +1,6 @@
 import { HERO_CONTENT } from '../../data/heroContent'
 import { AnimatedHeadline } from './AnimatedHeadline'
 import { HeroActions } from './HeroActions'
-import { HeroBlocks } from './HeroBlocks'
 import { Header } from './Header'
 import { HeroBackground } from './HeroBackground'
 import { HeadlineLine } from './HeadlineLine'
@@ -29,7 +28,6 @@ export function Hero() {
 
   return (
     <section id="home" ref={heroRef} className="hero" aria-label="Hero">
-      <HeroBlocks />
       <HeroBackground />
       <div className="hero__overlay" role="presentation" />
 

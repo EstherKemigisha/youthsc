@@ -23,7 +23,7 @@ export type SiteNavLink = {
 
 /** Site navigation — footer & slide menu */
 export const SITE_NAV_LINKS = [
-  { label: 'Home', href: '/', icon: 'home' },
+  { label: 'Home', href: '/#home', icon: 'home' },
   { label: 'About', href: '/#about', icon: 'about' },
   { label: 'Events', href: '/#events', icon: 'events' },
   { label: 'Stories', href: '/#interviews', icon: 'stories' },

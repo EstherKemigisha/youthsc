@@ -397,13 +397,16 @@
   gap: 0.5rem;
   margin-top: 0.85rem;
   padding-top: 0.65rem;
+  flex-wrap: nowrap;
 }
 
 .shop-card__meta {
   display: flex;
   align-items: baseline;
   gap: 0.35rem;
+  flex: 1 1 auto;
   min-width: 0;
+  white-space: nowrap;
 }
 
 .shop-card__compare {
@@ -417,13 +420,14 @@
   font-size: 0.82rem;
   font-weight: 800;
   color: var(--shop-ink);
+  white-space: nowrap;
 }
 
 .shop-card__pill {
-  flex-shrink: 0;
-  padding: 0.42rem 0.75rem;
+  flex: 0 0 auto;
+  padding: 0.38rem 0.62rem;
   font-family: var(--font);
-  font-size: 0.66rem;
+  font-size: 0.64rem;
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -432,6 +436,7 @@
   border: 1px solid rgba(245, 166, 35, 0.45);
   border-radius: 999px;
   cursor: pointer;
+  white-space: nowrap;
   transition:
     background 0.2s ease,
     transform 0.2s ease,
@@ -920,12 +925,12 @@
   }
 
   .shop-card__footer {
-    flex-wrap: wrap;
+    gap: 0.35rem;
   }
 
   .shop-card__pill {
-    width: 100%;
-    text-align: center;
+    padding-inline: 0.55rem;
+    font-size: 0.6rem;
   }
 }
 
@@ -965,6 +970,15 @@
     font-size: 0.72rem;
   }
 
+  .shop-card__footer {
+    gap: 0.3rem;
+  }
+
+  .shop-card__pill {
+    padding-inline: 0.5rem;
+    font-size: 0.58rem;
+  }
+
   .collection-order {
     padding-left: max(1rem, env(safe-area-inset-left, 0px));
     padding-right: max(1rem, env(safe-area-inset-right, 0px));
@@ -997,6 +1011,14 @@
 
   .shop-card__panel {
     padding: 0.65rem 0.55rem 0.35rem;
+  }
+
+  .shop-card__footer {
+    gap: 0.25rem;
+  }
+
+  .shop-card__pill {
+    padding-inline: 0.45rem;
   }
 }
 
