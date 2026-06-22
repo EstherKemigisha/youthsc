@@ -4,9 +4,10 @@ import {
   useMemo,
   useRef,
   useState,
+  type CSSProperties,
 } from 'react'
 import { INTERVIEWS_CONTENT, type InterviewItem } from '../../data/interviewsContent'
-import { useInView } from '../../hooks/useInView'
+import { useScrollSection } from '../../hooks/useScrollSection'
 import { getVisibleSlideCount } from '../../utils/visibleSlides'
 import './Interviews.css'
 
@@ -20,7 +21,10 @@ type TrackMetrics = {
 }
 
 export function Interviews() {
-  const { ref: sectionRef, isInView } = useInView({ threshold: 0.1 })
+  const { ref: sectionRef, isInView } = useScrollSection({
+    cssVar: '--interviews-scroll',
+    threshold: 0.1,
+  })
   const viewportRef = useRef<HTMLDivElement>(null)
   const trackRef = useRef<HTMLDivElement>(null)
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([])
@@ -337,6 +341,7 @@ export function Interviews() {
                       <article
                         key={`${item.id}-${index}`}
                         className={`interviews__slide${isActive ? ' interviews__slide--active' : ''}`}
+                        style={{ '--slide-i': index } as CSSProperties}
                         onClick={() => snapToSlide(realIndex, true)}
                       >
                         <div className="interviews__slide-inner">

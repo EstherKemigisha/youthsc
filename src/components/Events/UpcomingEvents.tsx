@@ -1,6 +1,6 @@
-import type { CSSProperties } from 'react'
 import { Link } from 'react-router-dom'
 import { EVENTS_CONTENT } from '../../data/eventsContent'
+import { CardReveal } from '../ScrollReveal/ScrollReveal'
 import { useInView } from '../../hooks/useInView'
 import './UpcomingEvents.css'
 
@@ -45,40 +45,42 @@ export function UpcomingEvents() {
 
         <ul className="events__grid">
           {events.map((event, index) => (
-            <li
-              key={event.title}
-              className="events__card"
-              style={{ '--card-i': index } as CSSProperties}
-            >
-              <div className="events__card-media">
-                <img
-                  className="events__card-image"
-                  src={event.image}
-                  alt={event.imageAlt}
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div className="events__card-badge">
-                  <time className="events__date">{event.date}</time>
-                  <span className="events__time">{event.time}</span>
+            <li key={event.title} className="events__card-item">
+              <CardReveal
+                as="article"
+                className="events__card"
+                index={index}
+              >
+                <div className="events__card-media">
+                  <img
+                    className="events__card-image"
+                    src={event.image}
+                    alt={event.imageAlt}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div className="events__card-badge">
+                    <time className="events__date">{event.date}</time>
+                    <span className="events__time">{event.time}</span>
+                  </div>
                 </div>
-              </div>
 
-              <div className="events__card-body">
-                <h3 className="events__card-title">{event.title}</h3>
-                <p className="events__location">{event.location}</p>
-                <p className="events__description">{event.description}</p>
-                <Link
-                  to={`/register/${event.slug}`}
-                  className="events__card-cta"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  View details
-                  <span className="events__card-cta-arrow" aria-hidden="true">
-                    →
-                  </span>
-                </Link>
-              </div>
+                <div className="events__card-body">
+                  <h3 className="events__card-title">{event.title}</h3>
+                  <p className="events__location">{event.location}</p>
+                  <p className="events__description">{event.description}</p>
+                  <Link
+                    to={`/register/${event.slug}`}
+                    className="events__card-cta"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    View details
+                    <span className="events__card-cta-arrow" aria-hidden="true">
+                      →
+                    </span>
+                  </Link>
+                </div>
+              </CardReveal>
             </li>
           ))}
         </ul>

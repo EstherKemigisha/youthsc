@@ -1,6 +1,7 @@
 import { useEffect, useState, type FormEvent } from 'react'
 import { Link } from 'react-router-dom'
 import { PageHeader } from '../components/PageHeader/PageHeader'
+import { CardReveal } from '../components/ScrollReveal/ScrollReveal'
 import { DONATE_CONTENT } from '../data/donateContent'
 import './DonatePage.css'
 
@@ -104,7 +105,7 @@ export function DonatePage() {
         <ul className="donate-ways__grid">
           {options.map((option, index) => (
             <li key={option.id}>
-              <article className="donate-ways__card">
+              <CardReveal as="article" className="donate-ways__card" index={index}>
                 <div
                   className="donate-ways__visual"
                   style={{ backgroundImage: `url('${option.image}')` }}
@@ -124,30 +125,34 @@ export function DonatePage() {
                     Give today
                   </button>
                 </div>
-              </article>
+              </CardReveal>
             </li>
           ))}
         </ul>
       </section>
 
       <section className="donate-trust" aria-label="Why your gift matters">
-        <div className="donate-trust__panel donate-trust__panel--purpose">
+        <CardReveal as="div" className="donate-trust__panel donate-trust__panel--purpose">
           <h2 className="donate-trust__title">{purpose.title}</h2>
           <ul className="donate-trust__list">
             {purpose.points.map((point) => (
               <li key={point}>{point}</li>
             ))}
           </ul>
-        </div>
+        </CardReveal>
 
-        <div className="donate-trust__panel donate-trust__panel--give">
+        <CardReveal
+          as="div"
+          className="donate-trust__panel donate-trust__panel--give"
+          index={1}
+        >
           <h2 className="donate-trust__title">{whatToGive.title}</h2>
           <ul className="donate-trust__list">
             {whatToGive.items.map((item) => (
               <li key={item}>{item}</li>
             ))}
           </ul>
-        </div>
+        </CardReveal>
       </section>
 
       <section id="donate-form" className="donate-form-section" aria-labelledby="donate-form-title">

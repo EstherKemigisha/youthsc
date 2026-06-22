@@ -1,10 +1,11 @@
 import type { CSSProperties } from 'react'
 import { ABOUT_CONTENT } from '../../data/aboutContent'
-import { useInView } from '../../hooks/useInView'
+import { CardReveal } from '../ScrollReveal/ScrollReveal'
+import { useScrollSection } from '../../hooks/useScrollSection'
 import './About.css'
 
 export function About() {
-  const { ref, isInView } = useInView({ threshold: 0.15 })
+  const { ref, isInView } = useScrollSection({ cssVar: '--about-scroll', threshold: 0.15 })
   const { eyebrow, title, paragraphs, highlights } = ABOUT_CONTENT
 
   return (
@@ -45,7 +46,7 @@ export function About() {
             </ul>
           </div>
 
-          <aside className="about__panel" aria-label="Highlights">
+          <CardReveal as="aside" className="about__panel" aria-label="Highlights">
             <ul className="about__highlights">
               {highlights.map((item) => (
                 <li key={item.label} className="about__highlight">
@@ -54,7 +55,7 @@ export function About() {
                 </li>
               ))}
             </ul>
-          </aside>
+          </CardReveal>
         </div>
       </div>
     </section>

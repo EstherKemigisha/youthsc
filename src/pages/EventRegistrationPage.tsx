@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState, type FormEvent } from 'react'
 import { Link, Navigate, useParams } from 'react-router-dom'
 import { PageHeader } from '../components/PageHeader/PageHeader'
+import { CardReveal } from '../components/ScrollReveal/ScrollReveal'
 import {
   EVENTS_CONTENT,
   getEventBySlug,
@@ -73,11 +74,11 @@ export function EventRegistrationPage() {
       </header>
 
       <div className="register-page__layout">
-        <aside className="register-page__event-card">
+        <CardReveal as="aside" className="register-page__event-card">
           <EventPreview event={selectedEvent} />
-        </aside>
+        </CardReveal>
 
-        <div className="register-page__form-wrap">
+        <CardReveal as="div" className="register-page__form-wrap" index={1}>
           {submitted ? (
             <div className="register-page__success" role="status">
               <h2>You are registered!</h2>
@@ -160,7 +161,7 @@ export function EventRegistrationPage() {
               </button>
             </form>
           )}
-        </div>
+        </CardReveal>
       </div>
     </div>
   )

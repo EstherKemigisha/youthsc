@@ -2,7 +2,12 @@ import { useEffect, useState, type FormEvent } from 'react'
 import { Link } from 'react-router-dom'
 import { CollectionShopCard } from '../components/Collection/CollectionShopCard'
 import { PageHeader } from '../components/PageHeader/PageHeader'
-import { FadeIn, ListReveal, RevealLine, RevealLines } from '../components/ScrollReveal/ScrollReveal'
+import {
+  CardReveal,
+  FadeIn,
+  RevealLine,
+  RevealLines,
+} from '../components/ScrollReveal/ScrollReveal'
 import { COLLECTION_CONTENT } from '../data/collectionContent'
 import { useInView } from '../hooks/useInView'
 import { useSectionScroll } from '../hooks/useSectionScroll'
@@ -144,13 +149,13 @@ export function YouthCollectionPage() {
 
         <ul className="collection-shop__grid">
           {products.map((product, index) => (
-            <ListReveal key={product.id} index={index}>
+            <CardReveal key={product.id} as="li" index={index}>
               <CollectionShopCard
                 product={product}
                 brandLine={brandLine}
                 onOrder={openOrder}
               />
-            </ListReveal>
+            </CardReveal>
           ))}
         </ul>
       </section>

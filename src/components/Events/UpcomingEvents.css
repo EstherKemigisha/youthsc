@@ -236,7 +236,6 @@
 }
 
 .events__card {
-  --card-i: 0;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -252,13 +251,6 @@
         rgba(255, 192, 64, 0.35) 100%
       )
       border-box;
-  opacity: 0;
-  transform: translateY(32px);
-  transition:
-    opacity 0.7s ease calc(0.12s + var(--card-i) * 0.1s),
-    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) calc(0.12s + var(--card-i) * 0.1s),
-    box-shadow 0.35s ease,
-    border-color 0.35s ease;
 }
 
 .events__card::before {
@@ -437,11 +429,6 @@
 }
 
 .events--visible .events__header {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.events--visible .events__card {
   opacity: 1;
   transform: translateY(0);
 }

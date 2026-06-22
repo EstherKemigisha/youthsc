@@ -30,11 +30,11 @@ export const HERO_CONTENT = {
     alt: 'YSC — Youth Satisfied in Christ',
   },
   heroImage: {
-    src: '/hero/hero-landing.png',
+    src: '/hero/hero-landing-mobile.jpg',
     alt: 'Two YSC youth smiling in team jerseys',
   },
   heroMobileImage: {
-    src: '/hero/hero-landing.png',
+    src: '/hero/hero-landing-mobile.jpg',
     alt: 'Two YSC youth smiling in team jerseys',
   },
   headerBrand: {

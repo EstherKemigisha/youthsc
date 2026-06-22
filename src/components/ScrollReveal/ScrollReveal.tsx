@@ -1,4 +1,12 @@
-import { useEffect, useRef, useState, type CSSProperties, type ElementType, type ReactNode } from 'react'
+import {
+  useEffect,
+  useRef,
+  useState,
+  type CSSProperties,
+  type ElementType,
+  type HTMLAttributes,
+  type ReactNode,
+} from 'react'
 import './ScrollReveal.css'
 
 type RevealOptions = {
@@ -123,6 +131,38 @@ export function FadeIn({
       ref={ref}
       className={`fade-in${visible ? ' fade-in--visible' : ''}${className ? ` ${className}` : ''}`}
       style={{ '--fade-delay': `${delay}s` } as CSSProperties}
+    >
+      {children}
+    </Tag>
+  )
+}
+
+type CardRevealProps = {
+  children: ReactNode
+  index?: number
+  className?: string
+  as?: ElementType
+} & HTMLAttributes<HTMLElement>
+
+export function CardReveal({
+  children,
+  index = 0,
+  className = '',
+  as: Tag = 'div',
+  ...rest
+}: CardRevealProps) {
+  const { style, ...cardRest } = rest
+  const { ref, visible } = useRevealOnScroll({
+    threshold: 0.12,
+    rootMargin: '0px 0px -8% 0px',
+  })
+
+  return (
+    <Tag
+      ref={ref}
+      className={`card-reveal${visible ? ' card-reveal--visible' : ''}${className ? ` ${className}` : ''}`}
+      style={{ ...(style as CSSProperties | undefined), '--card-reveal-i': index } as CSSProperties}
+      {...cardRest}
     >
       {children}
     </Tag>

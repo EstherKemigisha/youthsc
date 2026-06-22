@@ -34,16 +34,45 @@
   transform: translateY(0);
 }
 
+/* Card reveal — soft lift + settle, tuned for mobile-first scrolling */
+.card-reveal {
+  opacity: 0;
+  transform: translateY(22px) scale(0.985);
+  transition:
+    opacity 0.8s ease calc(var(--card-reveal-i, 0) * 0.08s),
+    transform 0.95s cubic-bezier(0.16, 1, 0.3, 1) calc(var(--card-reveal-i, 0) * 0.08s),
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+  will-change: transform, opacity;
+}
+
+.card-reveal--visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+@media (max-width: 768px) {
+  .card-reveal {
+    transform: translateY(28px) scale(0.97);
+  }
+
+  .card-reveal--visible {
+    transform: translateY(0) scale(1);
+  }
+}
+
 /* Mario Roudil–style list item clip reveal */
 .list-reveal {
   overflow: hidden;
 }
 
 .list-reveal__inner {
-  transform: translateY(105%);
+  display: block;
+  transform: translateY(108%) scale(0.975);
+  transform-origin: center 80%;
   opacity: 0;
   transition:
-    transform 1s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.95s cubic-bezier(0.16, 1, 0.3, 1),
     opacity 0.75s ease;
   transition-delay: calc(var(--list-i, 0) * 0.09s);
   will-change: transform, opacity;
@@ -57,6 +86,7 @@
 @media (prefers-reduced-motion: reduce) {
   .reveal-line__inner,
   .fade-in,
+  .card-reveal,
   .list-reveal__inner {
     transform: none;
     opacity: 1;
