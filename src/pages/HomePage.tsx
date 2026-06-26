@@ -1,6 +1,6 @@
+import { Hero } from '../components/Hero/Hero'
 import { About } from '../components/About/About'
 import { UpcomingEvents } from '../components/Events/UpcomingEvents'
-import { Hero } from '../components/Hero/Hero'
 import { Interviews } from '../components/Interviews/Interviews'
 
 export function HomePage() {

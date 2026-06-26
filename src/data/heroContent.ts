@@ -76,7 +76,7 @@ export const HERO_CONTENT = {
     { label: 'UPCOMING EVENTS', href: '/#events', variant: 'outline' },
   ] satisfies CtaLink[],
   backgroundVideo: '/ysc.mp4',
-  mobileBackgroundVideo: '/mobile.mp4',
+  mobileBackgroundVideo: '/ysc.mp4',
   videoWordSegments: [
     { label: 'events', duration: 9 },
     { label: 'fun', duration: 3 },
