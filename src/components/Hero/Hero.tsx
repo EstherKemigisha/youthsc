@@ -24,7 +24,7 @@ export function Hero() {
           poster="/hero/hero-landing-mobile.jpg"
           aria-hidden="true"
         >
-          <source src="/ysc.mp4" type="video/mp4" />
+          <source src="/Christ.mp4" type="video/mp4" />
         </video>
 
         <div className="hero__scrim" aria-hidden="true" />
