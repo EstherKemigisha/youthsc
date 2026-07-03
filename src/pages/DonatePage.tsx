@@ -27,7 +27,6 @@ export function DonatePage() {
   const [submitted, setSubmitted] = useState(false)
   const [form, setForm] = useState<DonateForm>(emptyDonateForm)
   const {
-    eyebrow,
     titleLine1,
     titleLine2,
     intro,
@@ -72,7 +71,6 @@ export function DonatePage() {
         <div className="donate-hero__overlay" aria-hidden="true" />
 
         <div className="donate-hero__inner">
-          <p className="donate-hero__eyebrow">{eyebrow}</p>
           <h1 id="donate-hero-title" className="donate-hero__title">
             <span>{titleLine1}</span>
             <span>{titleLine2}</span>
@@ -119,7 +117,7 @@ export function DonatePage() {
                   <p className="donate-ways__card-desc">{option.description}</p>
                   <button
                     type="button"
-                    className={`donate-ways__btn${index === 1 ? ' donate-ways__btn--fill' : ''}`}
+                    className="donate-ways__btn"
                     onClick={() => scrollToForm(option.id)}
                   >
                     Give today

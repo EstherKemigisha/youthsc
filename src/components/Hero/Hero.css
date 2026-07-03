@@ -451,6 +451,10 @@
   background: rgba(0, 0, 0, 0.48);
 }
 
+[data-theme='light'] .hero.hero--gradient .hero__mobile-card {
+  box-shadow: none;
+}
+
 [data-theme='dark'] .hero.hero--gradient .hero__mobile-card {
   background: #000000;
   box-shadow: 0 -16px 40px rgba(0, 0, 0, 0.45);

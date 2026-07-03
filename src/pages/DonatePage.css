@@ -124,14 +124,15 @@
 }
 
 .donate-hero__cta--primary {
-  color: var(--donate-ink);
-  border: none;
-  background: #ffffff;
+  color: #0a0a0a;
+  border: 1.5px solid rgba(245, 166, 35, 0.35);
+  background: linear-gradient(180deg, #ffc850 0%, var(--orange-bright) 100%);
 }
 
 .donate-hero__cta--primary:hover {
   transform: translateY(-2px);
-  background: var(--orange-bright);
+  background: linear-gradient(180deg, #ffd66a 0%, #ffc850 100%);
+  border-color: var(--orange-bright);
 }
 
 .donate-hero__cta--ghost {
@@ -146,32 +147,7 @@
 }
 
 [data-theme='light'] .donate-hero {
-  color: var(--heading);
   background: var(--bg);
-}
-
-[data-theme='light'] .donate-hero__backdrop {
-  opacity: 0.22;
-  filter: grayscale(0.4) contrast(1.02);
-}
-
-[data-theme='light'] .donate-hero__overlay {
-  background:
-    radial-gradient(
-      ellipse 70% 55% at 50% 40%,
-      rgba(245, 166, 35, 0.12) 0%,
-      transparent 55%
-    ),
-    linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.88) 0%,
-      rgba(255, 255, 255, 0.96) 45%,
-      rgba(255, 255, 255, 0.98) 100%
-    );
-}
-
-[data-theme='light'] .donate-hero__intro {
-  color: var(--text-muted);
 }
 
 [data-theme='light'] .donate-hero__cta--primary {
@@ -181,16 +157,6 @@
 
 [data-theme='light'] .donate-hero__cta--primary:hover {
   background: linear-gradient(180deg, #ffc850 0%, var(--orange-bright) 100%);
-}
-
-[data-theme='light'] .donate-hero__cta--ghost {
-  color: var(--heading);
-  border-color: var(--border);
-}
-
-[data-theme='light'] .donate-hero__cta--ghost:hover {
-  border-color: var(--orange-bright);
-  color: var(--orange-bright);
 }
 
 /* Four ways — pillar cards */
@@ -369,9 +335,9 @@
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #ffffff;
-  background: transparent;
-  border: 1.5px solid rgba(255, 255, 255, 0.55);
+  color: #0a0a0a;
+  background: linear-gradient(180deg, #ffc850 0%, var(--orange-bright) 100%);
+  border: 1.5px solid rgba(245, 166, 35, 0.35);
   border-radius: 2px;
   cursor: pointer;
   transition:
@@ -381,23 +347,27 @@
 }
 
 .donate-ways__btn:hover {
+  background: linear-gradient(180deg, #ffd66a 0%, #ffc850 100%);
   border-color: var(--orange-bright);
-  color: var(--orange-bright);
-}
-
-.donate-ways__btn--fill {
-  color: var(--donate-ink);
-  background: #ffffff;
-  border-color: #ffffff;
-}
-
-.donate-ways__btn--fill:hover {
-  background: var(--orange-bright);
-  border-color: var(--orange-bright);
-  color: var(--donate-ink);
+  color: #0a0a0a;
 }
 
 @media (max-width: 768px) {
+  .donate-hero {
+    min-height: auto;
+    align-items: center;
+    padding: clamp(5.75rem, 15vh, 6.75rem) clamp(1.25rem, 4vw, 2rem)
+      clamp(1.35rem, 3vh, 1.75rem);
+  }
+
+  .donate-hero__inner {
+    margin-top: clamp(1.75rem, 7vh, 2.75rem);
+  }
+
+  .donate-hero__actions {
+    margin-top: clamp(1.25rem, 3vh, 1.5rem);
+  }
+
   .donate-ways__card {
     transition-duration: 0.45s;
   }
@@ -453,23 +423,13 @@
 }
 
 [data-theme='light'] .donate-ways__btn {
-  color: var(--heading);
-  border-color: var(--border);
+  color: #0a0a0a;
+  background: linear-gradient(180deg, #ffc850 0%, var(--orange-bright) 100%);
+  border-color: rgba(245, 166, 35, 0.35);
 }
 
 [data-theme='light'] .donate-ways__btn:hover {
-  border-color: var(--orange-bright);
-  color: var(--orange-bright);
-}
-
-[data-theme='light'] .donate-ways__btn--fill {
-  color: #0a0a0a;
-  background: var(--orange-bright);
-  border-color: var(--orange-bright);
-}
-
-[data-theme='light'] .donate-ways__btn--fill:hover {
-  background: linear-gradient(180deg, #ffc850 0%, var(--orange-bright) 100%);
+  background: linear-gradient(180deg, #ffd66a 0%, #ffc850 100%);
   border-color: var(--orange-bright);
   color: #0a0a0a;
 }

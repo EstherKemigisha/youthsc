@@ -13,7 +13,7 @@ export const DONATE_CONTENT = {
   titleLine2: 'Change a future.',
   intro:
     'Your generosity helps us reach more young people with the gospel, discipleship, and a culture-changing community rooted in Christ.',
-  waysTitle: 'Four ways to give',
+  waysTitle: 'Ways to give',
   waysSubtitle: 'Choose where your gift makes the greatest difference.',
   purpose: {
     title: 'Why we give',

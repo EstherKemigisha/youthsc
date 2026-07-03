@@ -1,19 +1,15 @@
 import { Link } from 'react-router-dom'
 import { HERO_CONTENT } from '../../data/heroContent'
-import { useTheme } from '../../context/ThemeContext'
 import { useScrollHeader } from '../../hooks/useScrollHeader'
 import { ThemeToggle } from '../ThemeToggle/ThemeToggle'
 import { SiteMenu } from './SiteMenu'
 import './SiteMenu.css'
 
 const HERO_LOGO = '/ysc-logo-transparent.png'
-const HERO_LOGO_LIGHT = '/ysc-logo-hero-light.png'
 
 export function Header() {
   const scrolled = useScrollHeader()
-  const { theme } = useTheme()
   const { headerBrand } = HERO_CONTENT
-  const logoSrc = theme === 'light' ? HERO_LOGO_LIGHT : HERO_LOGO
 
   return (
     <header
@@ -27,14 +23,12 @@ export function Header() {
 
           <Link
             to="/#home"
-            className={`logo site-header-logo header__logo${
-              theme === 'light' ? ' header__logo--light' : ''
-            }`}
+            className="logo site-header-logo header__logo"
             aria-label="YSC Home"
           >
             <img
               className="logo__img site-logo-img"
-              src={logoSrc}
+              src={HERO_LOGO}
               alt=""
               width={144}
               height={144}
