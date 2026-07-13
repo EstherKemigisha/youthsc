@@ -82,6 +82,30 @@ export function MenuNavIcon({ name }: MenuNavIconProps) {
             />
           </>
         )}
+        {name === 'donate' && (
+          <path
+            d="M12 20.5s-6-3.8-6-7.6c0-2.9 2.4-4.9 6-4.9s6 2 6 4.9c0 3.8-6 7.6-6 7.6Z"
+            stroke="currentColor"
+            strokeWidth="1.6"
+            strokeLinejoin="round"
+          />
+        )}
+        {name === 'collection' && (
+          <>
+            <path
+              d="M7 8.5h10l1 2h2.5v9H5.5v-9H7l1-2Z"
+              stroke="currentColor"
+              strokeWidth="1.6"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M9 12h6M9 15h4"
+              stroke="currentColor"
+              strokeWidth="1.6"
+              strokeLinecap="round"
+            />
+          </>
+        )}
       </svg>
     </span>
   )

@@ -46,10 +46,12 @@ function splitIntoLines(text: string) {
 
 export function YouthCollectionPage() {
   const [submitted, setSubmitted] = useState(false)
+  const [orderRevealed, setOrderRevealed] = useState(false)
   const [form, setForm] = useState<OrderForm>(emptyOrderForm)
   const heroRef = useSectionScroll({ cssVar: '--collection-scroll' })
   const { ref: shippingRef, isInView: shippingVisible } = useInView({ threshold: 0.2 })
-  const { ref: orderRef, isInView: orderVisible } = useInView({ threshold: 0.12 })
+  const { ref: orderRef, isInView: orderInView } = useInView({ threshold: 0.08, rootMargin: '0px' })
+  const orderVisible = orderInView || orderRevealed
   const {
     brandLine,
     heroSeason,
@@ -79,6 +81,7 @@ export function YouthCollectionPage() {
 
   const openOrder = (productId: string) => {
     setForm(emptyOrderForm(productId))
+    setOrderRevealed(true)
     document.getElementById('collection-order')?.scrollIntoView({
       behavior: 'smooth',
       block: 'start',
@@ -101,6 +104,7 @@ export function YouthCollectionPage() {
       >
         <div className="collection-hero__media" aria-hidden="true" />
         <div className="collection-hero__overlay" aria-hidden="true" />
+        <div className="collection-hero__scrim" aria-hidden="true" />
 
         <div className="collection-hero__content">
           <FadeIn className="collection-hero__eyebrow" delay={0.05}>
@@ -149,13 +153,14 @@ export function YouthCollectionPage() {
 
         <ul className="collection-shop__grid">
           {products.map((product, index) => (
-            <CardReveal key={product.id} as="li" index={index}>
+            <li key={product.id}>
               <CollectionShopCard
                 product={product}
                 brandLine={brandLine}
                 onOrder={openOrder}
+                index={index}
               />
-            </CardReveal>
+            </li>
           ))}
         </ul>
       </section>
@@ -178,14 +183,14 @@ export function YouthCollectionPage() {
       </section>
 
       <section
-        id="collection-order"
         ref={orderRef}
+        id="collection-order"
         className={`collection-order${orderVisible ? ' collection-order--visible' : ''}`}
         aria-labelledby="collection-order-title"
       >
         <div className="collection-order__inner">
           {submitted ? (
-            <div className="collection-order__success" role="status">
+            <CardReveal as="div" className="collection-order__success" index={0} role="status">
               <p className="collection-order__success-eyebrow">Thank you</p>
               <h2>Order received!</h2>
               <p>
@@ -195,7 +200,7 @@ export function YouthCollectionPage() {
               <Link to="/#home" className="collection-order__home" aria-label="Back home">
                 ←
               </Link>
-            </div>
+            </CardReveal>
           ) : (
             <>
               <header className="collection-order__head">
@@ -214,6 +219,7 @@ export function YouthCollectionPage() {
                 />
               </header>
 
+              <CardReveal as="div" className="collection-order__form-wrap" index={0}>
               <form
                 className="collection-order__form"
                 onSubmit={handleSubmit}
@@ -296,6 +302,7 @@ export function YouthCollectionPage() {
                 <fieldset className="collection-order__group collection-order__fieldset">
                   <legend className="collection-order__group-label">Fulfillment</legend>
                   <div className="collection-order__options">
+                    <CardReveal as="div" className="collection-order__option-wrap" index={0}>
                     <label
                       className={`collection-order__option${form.fulfillment === 'pickup' ? ' collection-order__option--active' : ''}`}
                     >
@@ -309,6 +316,8 @@ export function YouthCollectionPage() {
                         Pick up at YSC gathering
                       </span>
                     </label>
+                    </CardReveal>
+                    <CardReveal as="div" className="collection-order__option-wrap" index={1}>
                     <label
                       className={`collection-order__option${form.fulfillment === 'delivery' ? ' collection-order__option--active' : ''}`}
                     >
@@ -320,6 +329,8 @@ export function YouthCollectionPage() {
                       />
                       <span className="collection-order__option-text">Local delivery</span>
                     </label>
+                    </CardReveal>
+                    <CardReveal as="div" className="collection-order__option-wrap" index={2}>
                     <label
                       className={`collection-order__option${form.fulfillment === 'shipping' ? ' collection-order__option--active' : ''}`}
                     >
@@ -331,6 +342,7 @@ export function YouthCollectionPage() {
                       />
                       <span className="collection-order__option-text">Ship to me</span>
                     </label>
+                    </CardReveal>
                   </div>
                 </fieldset>
 
@@ -366,6 +378,7 @@ export function YouthCollectionPage() {
                   </button>
                 </footer>
               </form>
+              </CardReveal>
             </>
           )}
         </div>

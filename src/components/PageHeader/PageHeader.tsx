@@ -1,50 +1,42 @@
 import { Link } from 'react-router-dom'
-import { useTheme } from '../../context/ThemeContext'
-import { HERO_CONTENT } from '../../data/heroContent'
+import { SiteLogo } from '../SiteLogo/SiteLogo'
 import { ThemeToggle } from '../ThemeToggle/ThemeToggle'
+import { SiteMenu } from '../Hero/SiteMenu'
+import '../Hero/SiteMenu.css'
 import './PageHeader.css'
-
-const PAGE_LOGO_LIGHT = '/ysc-logo-hero-light.png'
 
 type PageHeaderProps = {
   backTo?: string
   backAriaLabel?: string
+  logoTheme?: 'dark' | 'light'
 }
 
 export function PageHeader({
   backTo = '/#home',
   backAriaLabel = 'Back home',
+  logoTheme,
 }: PageHeaderProps) {
-  const { theme } = useTheme()
-  const { headerBrand, logo } = HERO_CONTENT
-  const logoSrc = theme === 'light' ? PAGE_LOGO_LIGHT : logo.src
-
   return (
     <header className="page-header site-header-bar site-header-bar--page">
       <div className="site-header-bar__inner page-header__inner header__inner">
-        <Link
-          to="/#home"
-          className={`page-header__logo site-header-logo${
-            theme === 'light' ? ' page-header__logo--light' : ''
-          }`}
-          aria-label="YSC Home"
-        >
-          <img
-            className="page-header__logo-img site-logo-img"
-            src={logoSrc}
-            alt=""
-            width={144}
-            height={144}
-            decoding="async"
-          />
-        </Link>
+        <div className="header__col header__col--left">
+          <SiteMenu variant="icon" />
+        </div>
 
-        <p className="page-header__center-brand header__center-brand">
-          <span className="header__center-brand-title">{headerBrand.title}</span>
-          <span className="header__center-brand-subtitle">{headerBrand.subtitle}</span>
-        </p>
+        <div className="header__col header__col--center">
+          <Link
+            to="/#home"
+            className="page-header__logo site-header-logo"
+            aria-label="YSC Home"
+          >
+            <SiteLogo
+              className="page-header__logo-img site-logo-img"
+              logoTheme={logoTheme}
+            />
+          </Link>
+        </div>
 
-        <div className="page-header__actions header__actions">
+        <div className="header__col header__col--right">
           <ThemeToggle variant="hero" />
           <Link
             to={backTo}

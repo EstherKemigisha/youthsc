@@ -7,16 +7,6 @@
 }
 
 .page-header__logo {
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
-  text-decoration: none;
-}
-
-.page-header__actions {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
   flex-shrink: 0;
 }
 
@@ -25,62 +15,35 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  padding: 0.15rem 0.25rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
   font-family: var(--font);
-  font-size: 1.45rem;
+  font-size: 1.35rem;
   font-weight: 700;
   line-height: 1;
   text-decoration: none;
-  color: var(--heading);
+  color: var(--orange-bright);
   background: none;
   border: none;
+  transform: translateY(-0.15rem);
   transition: color 0.2s ease, opacity 0.2s ease;
 }
 
 .page-header__back:hover,
 .page-header__back:focus-visible {
-  color: var(--orange-bright);
+  color: var(--orange-deep);
   opacity: 0.92;
 }
 
-/* Light mode — dark Y/S on transparent logo reads on white bar */
-.page-header__logo--light .site-logo-img {
-  width: clamp(4.5rem, 22vw, 6rem);
-  max-height: clamp(4.5rem, 22vw, 6rem);
-  filter: contrast(1.12) saturate(1.08);
-}
-
-[data-theme='light'] .page-header__center-brand .header__center-brand-title {
-  color: #0a0a0a;
-}
-
-[data-theme='light'] .page-header__center-brand .header__center-brand-subtitle {
-  color: var(--orange-deep);
-}
-
 @media (max-width: 768px) {
-  .page-header__logo {
-    margin-left: -0.35rem;
-  }
-
   .page-header__back {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
   }
 }
 
 @media (max-width: 380px) {
-  .page-header__center-brand {
-    display: none;
-  }
-
-  .page-header__logo--light .site-logo-img,
-  .page-header__logo .site-logo-img {
-    width: clamp(3.75rem, 18vw, 4.5rem);
-    max-height: clamp(3.75rem, 18vw, 4.5rem);
-  }
-
   .site-header-bar__inner.page-header__inner {
-    padding-left: max(0.65rem, env(safe-area-inset-left, 0px));
-    padding-right: max(0.65rem, env(safe-area-inset-right, 0px));
+    padding-inline: max(1rem, env(safe-area-inset-left, 0px)) max(1rem, env(safe-area-inset-right, 0px));
   }
 }

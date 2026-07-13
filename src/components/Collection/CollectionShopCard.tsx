@@ -1,14 +1,21 @@
 import type { CollectionProduct } from '../../data/collectionContent'
+import { CardReveal } from '../ScrollReveal/ScrollReveal'
 
 type CollectionShopCardProps = {
   product: CollectionProduct
   brandLine: string
   onOrder: (productId: string) => void
+  index?: number
 }
 
-export function CollectionShopCard({ product, brandLine, onOrder }: CollectionShopCardProps) {
+export function CollectionShopCard({
+  product,
+  brandLine,
+  onOrder,
+  index = 0,
+}: CollectionShopCardProps) {
   return (
-    <article className="shop-card">
+    <CardReveal as="article" className="shop-card" index={index}>
       <button
         type="button"
         className="shop-card__media"
@@ -27,18 +34,6 @@ export function CollectionShopCard({ product, brandLine, onOrder }: CollectionSh
       <div className="shop-card__panel">
         <div className="shop-card__head">
           <h3 className="shop-card__name">{product.name}</h3>
-          <span className="shop-card__badge" aria-hidden="true">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <circle cx="7" cy="7" r="7" fill="currentColor" />
-              <path
-                d="M4 7.2l2 2 4-4.2"
-                stroke="#fff"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </span>
         </div>
 
         <p className="shop-card__brand">{brandLine}</p>
@@ -46,9 +41,6 @@ export function CollectionShopCard({ product, brandLine, onOrder }: CollectionSh
 
         <div className="shop-card__footer">
           <div className="shop-card__meta">
-            {product.onSale && product.compareAtPrice && (
-              <span className="shop-card__compare">{product.compareAtPrice}</span>
-            )}
             <span className="shop-card__price">{product.price}</span>
           </div>
           <button
@@ -60,6 +52,6 @@ export function CollectionShopCard({ product, brandLine, onOrder }: CollectionSh
           </button>
         </div>
       </div>
-    </article>
+    </CardReveal>
   )
 }

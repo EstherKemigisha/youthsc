@@ -164,7 +164,7 @@ export function CardReveal({
       style={{ ...(style as CSSProperties | undefined), '--card-reveal-i': index } as CSSProperties}
       {...cardRest}
     >
-      {children}
+      <div className="card-reveal__inner">{children}</div>
     </Tag>
   )
 }

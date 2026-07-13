@@ -58,14 +58,6 @@ export const DONATE_CONTENT = {
       suggestedAmount: 'From $15',
       image: '/events/bible-study.png',
     },
-    {
-      id: 'scholarship',
-      title: 'Youth scholarship',
-      amountLabel: 'Sponsor a young person',
-      description: 'Covers fees, transport, or gear so someone can fully participate.',
-      suggestedAmount: 'From $50',
-      image: '/events/donate-scholarship.png',
-    },
   ] satisfies DonationOption[],
   ctaNote:
     'Complete the form below and our team will contact you with payment details (mobile money or in-person).',

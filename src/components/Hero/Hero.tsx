@@ -1,7 +1,6 @@
 import { HERO_CONTENT } from '../../data/heroContent'
 import { AnimatedHeadline } from './AnimatedHeadline'
 import { HeroActions } from './HeroActions'
-import { Header } from './Header'
 import { HeroBackground } from './HeroBackground'
 import { HeadlineLine } from './HeadlineLine'
 import { SocialLinks } from './SocialLinks'
@@ -35,8 +34,6 @@ export function Hero() {
     >
       <HeroBackground />
       <div className="hero__overlay" role="presentation" />
-
-      <Header />
 
       <div className="hero__mobile-ui">
         <div className="hero__mobile-card">

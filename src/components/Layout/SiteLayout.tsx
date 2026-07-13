@@ -10,7 +10,7 @@ export function SiteLayout({ children }: SiteLayoutProps) {
   return (
     <>
       <HashScrollHandler />
-      {children}
+      <div className="site-shell">{children}</div>
       <Footer />
     </>
   )

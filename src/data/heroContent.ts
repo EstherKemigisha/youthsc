@@ -31,11 +31,11 @@ export const HERO_CONTENT = {
   },
   heroImage: {
     src: '/hero/hero-landing.png',
-    alt: 'Three YSC youth in Jesus Must Be Seen shirts outdoors',
+    alt: 'Two YSC youth smiling outdoors',
   },
   heroMobileImage: {
     src: '/hero/hero-landing-mobile.png',
-    alt: 'Three YSC youth in Jesus Must Be Seen shirts outdoors',
+    alt: 'Two YSC youth smiling outdoors',
   },
   headerBrand: {
     title: 'YOUTH SATISFIED',

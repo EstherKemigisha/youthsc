@@ -6,28 +6,28 @@ type ThemeToggleProps = {
   variant?: 'default' | 'hero'
 }
 
-function SunIcon() {
+function MoonIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <circle cx="12" cy="12" r="4.25" stroke="currentColor" strokeWidth="1.75" />
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
-        d="M12 3.25v2.1M12 18.65v2.1M4.75 12h2.1M17.15 12h2.1M6.4 6.4l1.48 1.48M16.12 16.12l1.48 1.48M6.4 17.6l1.48-1.48M16.12 7.88l1.48-1.48"
+        d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5 8.5 8.5 0 1 0 20.5 14.5Z"
         stroke="currentColor"
         strokeWidth="1.75"
-        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   )
 }
 
-function MoonIcon() {
+function SunIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="1.75" />
       <path
-        d="M15.2 4.1a7.25 7.25 0 1 0 4.7 11.45A6.25 6.25 0 0 1 15.2 4.1Z"
+        d="M12 3.25v2.25M12 18.5v2.25M4.22 4.22l1.59 1.59M18.19 18.19l1.59 1.59M3.25 12h2.25M18.5 12h2.25M4.22 19.78l1.59-1.59M18.19 5.81l1.59-1.59"
         stroke="currentColor"
         strokeWidth="1.75"
-        strokeLinejoin="round"
+        strokeLinecap="round"
       />
     </svg>
   )
@@ -52,12 +52,8 @@ export function ThemeToggle({ className = '', variant = 'default' }: ThemeToggle
       aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
       title={isDark ? 'Light mode' : 'Dark mode'}
     >
-      <span className="theme-toggle__indicator" aria-hidden="true" />
-      <span className="theme-toggle__option theme-toggle__option--sun" aria-hidden="true">
-        <SunIcon />
-      </span>
-      <span className="theme-toggle__option theme-toggle__option--moon" aria-hidden="true">
-        <MoonIcon />
+      <span className="theme-toggle__icon" aria-hidden="true">
+        {isDark ? <MoonIcon /> : <SunIcon />}
       </span>
     </button>
   )

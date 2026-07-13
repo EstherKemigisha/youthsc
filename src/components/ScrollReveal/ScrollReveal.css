@@ -34,30 +34,39 @@
   transform: translateY(0);
 }
 
-/* Card reveal — soft lift + settle, tuned for mobile-first scrolling */
+/* Card reveal — fade in + slide up on scroll */
 .card-reveal {
+  height: 100%;
+}
+
+.card-reveal__inner {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
   opacity: 0;
-  transform: translateY(22px) scale(0.985);
+  transform: translateY(36px);
   transition:
-    opacity 0.8s ease calc(var(--card-reveal-i, 0) * 0.08s),
-    transform 0.95s cubic-bezier(0.16, 1, 0.3, 1) calc(var(--card-reveal-i, 0) * 0.08s),
-    box-shadow 0.35s ease,
-    border-color 0.35s ease;
+    opacity 0.75s ease calc(var(--card-reveal-i, 0) * 0.1s),
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1) calc(var(--card-reveal-i, 0) * 0.1s);
   will-change: transform, opacity;
 }
 
-.card-reveal--visible {
+.card-reveal--visible .card-reveal__inner {
   opacity: 1;
-  transform: translateY(0) scale(1);
+  transform: translateY(0);
+}
+
+.card-reveal__inner > .donate-ways__card,
+.card-reveal__inner > .shop-card {
+  flex: 1;
+  width: 100%;
 }
 
 @media (max-width: 768px) {
-  .card-reveal {
-    transform: translateY(28px) scale(0.97);
-  }
-
-  .card-reveal--visible {
-    transform: translateY(0) scale(1);
+  .card-reveal__inner {
+    transform: translateY(28px);
   }
 }
 
@@ -86,7 +95,7 @@
 @media (prefers-reduced-motion: reduce) {
   .reveal-line__inner,
   .fade-in,
-  .card-reveal,
+  .card-reveal__inner,
   .list-reveal__inner {
     transform: none;
     opacity: 1;

@@ -3,8 +3,6 @@ export type CollectionProduct = {
   name: string
   tagline: string
   price: string
-  compareAtPrice?: string
-  onSale?: boolean
   description: string
   image: string
 }
@@ -29,9 +27,7 @@ export const COLLECTION_CONTENT = {
       id: 'jersey-series',
       name: 'The Jersey Series',
       tagline: 'Real Madrid · Barça · Man City & more',
-      price: '$32',
-      compareAtPrice: '$40',
-      onSale: true,
+      price: '$8.12',
       description:
         'Fan jerseys like the ones on our Friday night stage — unisex sizes S–XXL.',
       image: '/events/collection-tees.png',
@@ -40,9 +36,7 @@ export const COLLECTION_CONTENT = {
       id: 'gameday-graphics',
       name: 'Love Like Jesus Tee',
       tagline: 'Heart graphic · orange & black',
-      price: '$24',
-      compareAtPrice: '$30',
-      onSale: true,
+      price: '$6.77',
       description:
         'Bold back graphic with “Love Like Jesus” — rep faith on and off the pitch.',
       image: '/events/collection-love-like-jesus.png',
@@ -51,7 +45,7 @@ export const COLLECTION_CONTENT = {
       id: 'street-cargos',
       name: 'Youth Satisfied Tee',
       tagline: 'Classic black · white wordmark',
-      price: '$42',
+      price: '$6.77',
       description:
         'The signature YSC tee — clean, confident, and made for everyday wear.',
       image: '/events/collection-ysc-tee.png',
@@ -60,7 +54,7 @@ export const COLLECTION_CONTENT = {
       id: 'performance-wear',
       name: 'Jesus Must Be Seen Tee',
       tagline: 'Black & red · bold front graphic',
-      price: '$28',
+      price: '$6.77',
       description:
         'Statement tees that put faith front and center — unisex fits in black and red.',
       image: '/events/collection-jesus-must-be-seen.png',
@@ -69,7 +63,7 @@ export const COLLECTION_CONTENT = {
       id: 'patterned-denim',
       name: 'Patterned Street Denim',
       tagline: 'Cloud-wash · light blue',
-      price: '$38',
+      price: '$13.54',
       description:
         'Bleached and patterned denim with streetwear character — pairs with any jersey.',
       image: '/events/collection-patterned-denim.png',

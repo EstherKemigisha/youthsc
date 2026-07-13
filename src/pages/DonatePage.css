@@ -21,7 +21,7 @@
   justify-content: center;
   min-height: min(92vh, 820px);
   padding: clamp(5rem, 14vh, 7rem) clamp(1.25rem, 4vw, 2.5rem)
-    clamp(3rem, 8vh, 4rem);
+    clamp(2rem, 5vh, 2.75rem);
   overflow: hidden;
   text-align: center;
   color: #ffffff;
@@ -99,7 +99,7 @@
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
-  margin-top: clamp(1.75rem, 4vh, 2.25rem);
+  margin-top: clamp(1.5rem, 3.5vh, 2rem);
 }
 
 .donate-hero__cta {
@@ -161,7 +161,8 @@
 
 /* Four ways — pillar cards */
 .donate-ways {
-  padding: clamp(3rem, 8vh, 4.5rem) clamp(1.25rem, 4vw, 2.5rem);
+  padding: clamp(2.25rem, 5vh, 3rem) clamp(1.25rem, 4vw, 2.5rem)
+    clamp(3rem, 8vh, 4.5rem);
   background: var(--donate-ink);
   color: #ffffff;
 }
@@ -190,7 +191,7 @@
 .donate-ways__grid {
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(0.65rem, 1.5vw, 1rem);
   max-width: min(1140px, 100%);
   margin: 0 auto;
@@ -203,13 +204,15 @@
   height: 100%;
   background: var(--donate-panel-soft);
   overflow: hidden;
-  transform: translateY(0);
   transition:
     transform 0.55s cubic-bezier(0.16, 1, 0.3, 1),
     box-shadow 0.55s ease;
 }
 
 .donate-ways__grid > li {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
   perspective: 1000px;
 }
 
@@ -357,7 +360,7 @@
     min-height: auto;
     align-items: center;
     padding: clamp(5.75rem, 15vh, 6.75rem) clamp(1.25rem, 4vw, 2rem)
-      clamp(1.35rem, 3vh, 1.75rem);
+      clamp(1.1rem, 2.5vh, 1.45rem);
   }
 
   .donate-hero__inner {
@@ -365,7 +368,13 @@
   }
 
   .donate-hero__actions {
-    margin-top: clamp(1.25rem, 3vh, 1.5rem);
+    flex-direction: column;
+    width: 100%;
+    margin-top: clamp(1rem, 2.5vh, 1.35rem);
+  }
+
+  .donate-hero__cta {
+    width: 100%;
   }
 
   .donate-ways__card {
@@ -529,8 +538,12 @@
   color: var(--text-muted);
 }
 
-.donate-form {
+.donate-form-section__form-wrap {
   margin-top: 1.75rem;
+}
+
+.donate-form {
+  margin-top: 0;
   padding: clamp(1.35rem, 3vw, 1.75rem);
   border: 1px solid rgba(255, 192, 64, 0.22);
   background: var(--surface-elevated);

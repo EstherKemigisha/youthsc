@@ -85,14 +85,11 @@ export function DonatePage() {
             >
               Give now
             </button>
-            <Link to="/youth-collection" className="donate-hero__cta donate-hero__cta--ghost">
-              Youth collection
-            </Link>
           </div>
         </div>
       </section>
 
-      <section className="donate-ways" aria-labelledby="donate-ways-title">
+      <section className="donate-ways" id="donate-ways" aria-labelledby="donate-ways-title">
         <div className="donate-ways__head">
           <h2 id="donate-ways-title" className="donate-ways__title">
             {waysTitle}

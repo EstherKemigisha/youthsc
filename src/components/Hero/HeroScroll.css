@@ -9,14 +9,8 @@
   will-change: transform, opacity;
 }
 
-.hero:not(.hero--gradient) .header.site-header-bar:not(.header--scrolled) {
-  opacity: calc(1 - var(--hero-scroll) * 0.65);
-  transform: translateY(calc(var(--hero-scroll) * -10px));
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .hero:not(.hero--gradient) .hero__mobile-ui,
-  .hero:not(.hero--gradient) .header.site-header-bar:not(.header--scrolled) {
+  .hero:not(.hero--gradient) .hero__mobile-ui {
     transform: none;
     opacity: 1;
     will-change: auto;
