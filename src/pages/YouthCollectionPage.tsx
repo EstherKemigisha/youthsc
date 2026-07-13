@@ -107,10 +107,6 @@ export function YouthCollectionPage() {
         <div className="collection-hero__scrim" aria-hidden="true" />
 
         <div className="collection-hero__content">
-          <FadeIn className="collection-hero__eyebrow" delay={0.05}>
-            {brandLine}
-          </FadeIn>
-
           <h1 id="collection-hero-title" className="collection-hero__title">
             <RevealLine index={0} className="collection-hero__title-line">
               {heroSeason}
