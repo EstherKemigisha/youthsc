@@ -4,6 +4,7 @@ import { DonatePage } from './pages/DonatePage'
 import { EventRegistrationPage } from './pages/EventRegistrationPage'
 import { HomePage } from './pages/HomePage'
 import { JoinUsPage } from './pages/JoinUsPage'
+import { ThankYouPage } from './pages/ThankYouPage'
 import { YouthCollectionPage } from './pages/YouthCollectionPage'
 
 function App() {
@@ -54,6 +55,14 @@ function App() {
         element={
           <SiteLayout>
             <JoinUsPage />
+          </SiteLayout>
+        }
+      />
+      <Route
+        path="/thank-you"
+        element={
+          <SiteLayout>
+            <ThankYouPage />
           </SiteLayout>
         }
       />

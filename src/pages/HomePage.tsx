@@ -4,6 +4,7 @@ import { HeroAboutSeam } from '../components/Hero/HeroAboutSeam'
 import { About } from '../components/About/About'
 import { UpcomingEvents } from '../components/Events/UpcomingEvents'
 import { Interviews } from '../components/Interviews/Interviews'
+import { ContactForm } from '../components/Contact/ContactForm'
 
 export function HomePage() {
   return (
@@ -14,6 +15,7 @@ export function HomePage() {
       <About />
       <UpcomingEvents />
       <Interviews />
+      <ContactForm />
     </>
   )
 }

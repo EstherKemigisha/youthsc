@@ -27,6 +27,7 @@ export const SITE_NAV_LINKS = [
   { label: 'About', href: '/#about', icon: 'about' },
   { label: 'Events', href: '/#events', icon: 'events' },
   { label: 'Stories', href: '/#interviews', icon: 'stories' },
+  { label: 'Contact', href: '/#contact', icon: 'about' },
   { label: 'Register', href: '/register', icon: 'register' },
   { label: 'Donate', href: '/donate', icon: 'donate' },
   { label: 'Youth Collection', href: '/youth-collection', icon: 'collection' },

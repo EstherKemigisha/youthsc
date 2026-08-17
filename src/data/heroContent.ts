@@ -22,8 +22,10 @@ export type SocialLink = {
 
 export const HERO_CONTENT = {
   whatsapp: {
-    label: 'Chat on WhatsApp',
-    href: 'https://wa.me/',
+    label: 'Chat with YSC',
+    // Local: 0788345329 (Uganda)
+    phone: '256788345329',
+    href: 'https://wa.me/256788345329?text=Hello%20YSC%2C%20I%27d%20like%20to%20chat',
   },
   logo: {
     src: '/ysc-logo.png',

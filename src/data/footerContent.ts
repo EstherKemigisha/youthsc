@@ -8,6 +8,6 @@ export const FOOTER_CONTENT = {
   tagline: 'Influencing and changing the culture for Jesus.',
   navLinks: SITE_NAV_LINKS satisfies FooterLink[],
   contact: {
-    label: 'Chat with us',
+    label: 'Chat with YSC',
   },
 } as const
